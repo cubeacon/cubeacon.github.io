@@ -1,0 +1,121 @@
+---
+layout: sdkiospost
+title: Guides
+cover: cover.jpg
+date:   2014-07-17 18:00:00
+categories: posts
+---
+
+
+<h2 id="cubeacon-sdk-installation">Cubeacon SDK Installation</h2>
+<ol>
+<li>Register to KiiCloud first using this <a href="http://docs.cubeacon.com/saas/signup-kii/">guide</a>.</li>
+<li>Download <code>KiiCloudStorageSDK-xxx.jar</code> and <code>KiiAnalyticsSDK-xxx.jar</code>.</li>
+<li>Register to <a href="http://developer.cubeacon.com">Cubeacon SaaS</a> and download <code>CubeaconSDK-Android-xxx.zip</code>.</li>
+<li>Extract <code>CubeaconSDK-Android-xxx.zip</code>, copy <code>Cubeacon.properties</code> to the root of your project&#39;s Java <code>src</code> source folder.</li>
+<li>Then copy <code>KiiCloudStorageSDK-xxx.jar</code>, <code>KiiAnalyticsSDK-xxx.jar</code> and <code>CuBeacon.jar</code> to your <code>libs</code> directory.</li>
+<li><p>Add following permissions and service declaration to your <code>AndroidManifest.xml</code>:</p>
+<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Needed permissions in order to connect to internet. --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.INTERNET"</span> /&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- Needed permissions in order to scan for beacons. --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.BLUETOOTH"</span> /&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- Declaration that this app is usable on phones with Bluetooth Low Energy. --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-feature
+</span>     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.hardware.bluetooth_le"</span>
+     <span class="hljs-attribute">android:required</span>=<span class="hljs-value">"true"</span> /&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Cubeacon service responsible for scanning beacons. --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">service</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.eyro.cubeacon.CBService"</span> 
+     <span class="hljs-attribute">android:exported</span>=<span class="hljs-value">"false"</span> /&gt;</span>
+ <span class="hljs-comment">&lt;!-- Service that responsible to send Analytic data --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">service</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.kii.cloud.analytics.EventUploadService"</span> /&gt;</span>
+</code></pre>
+</li>
+<li><p>Create custom application class and add the following code to the <code>onCreate()</code> method to initialize the Cubeacon SDK.</p>
+<pre><code class="lang-xml"> public void onCreate() {
+     super.onCreate();
+     // Cubeacon SDK Initialization
+     CBApp.setup(this, &quot;Cubeacon.properties&quot;);
+ }
+</code></pre>
+<p> Don&#39;t forget to initialize your custom class to <code>AndroidManifest.xml</code></p>
+<p> (Optional) You can enable Cubeacon SDK debug logging by calling <code>CBApp.enableDebugLogging(true)</code>.</p>
+</li>
+</ol>
+<h2 id="usage-and-demos">Usage and Demos</h2>
+<p>You can import <code>Cubeacon SDK Demos</code> that located in this repo to your ADT. After initialization, you must download all beacon data from Cloud first.</p>
+<p>Quick start to download cloud data :</p>
+<pre><code class="lang-java">CBApp.refreshBeacon(<span class="hljs-keyword">new</span> CBApp.RefreshBeacon() {
+    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeforeRefresh</span>() {
+        <span class="hljs-comment">// do something before download started</span>
+        <span class="hljs-comment">// like showing a splashscreen or progressbar</span>
+    }
+
+    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAfterRefresh</span>(String arg0) {
+        <span class="hljs-comment">// do something after download complete</span>
+        <span class="hljs-comment">// like showing main screen of your app</span>
+    }
+});
+</code></pre>
+<p>(Info) <code>CBApp.refreshBeacon</code> are implemented using background <code>AsyncTask</code> method.</p>
+<p>Then, on main activity of your apps :</p>
+<pre><code class="lang-java">    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span>(Bundle savedInstanceState) {
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        <span class="hljs-comment">// create Cubeacon SDK Service</span>
+        CBApp.createService(<span class="hljs-keyword">this</span>);
+        setContentView(R.layout.activity_main);
+        <span class="hljs-comment">// set beacon listener of Cubeacon SDK</span>
+        CBApp.setBeaconListener(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> CBApp.BeaconListener() {
+
+            <span class="hljs-annotation">@Override</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onExit</span>(CBBeacon beacon, <span class="hljs-keyword">long</span> timeInterval) {
+                <span class="hljs-comment">// do something when beacon exited region</span>
+            }
+
+            <span class="hljs-annotation">@Override</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEnter</span>(CBBeacon beacon) {
+                <span class="hljs-comment">// do something when beacon entered region</span>
+            }
+
+            <span class="hljs-annotation">@Override</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChange</span>(CBBeacon old, CBBeacon current) {
+                <span class="hljs-comment">// do something when nearest beacon changed</span>
+            }
+        });
+    }
+
+    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span>() {
+        <span class="hljs-comment">// starting Cubeacon SDK service</span>
+        CBApp.startService(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">super</span>.onStart();
+    }
+
+    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onActivityResult</span>(<span class="hljs-keyword">int</span> requestCode, <span class="hljs-keyword">int</span> resultCode, Intent data) {
+        <span class="hljs-comment">// call onActivityResult to Cubeacon SDK</span>
+        CBApp.onActivityResult(requestCode, resultCode, data);
+        <span class="hljs-keyword">super</span>.onActivityResult(requestCode, resultCode, data);
+    }
+
+    <span class="hljs-annotation">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span>() {
+        <span class="hljs-comment">// destroy Cubeacon SDK service</span>
+        CBApp.destroyService(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">super</span>.onDestroy();
+    }
+</code></pre>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>0.5.0 (August 25, 2014)<ul>
+<li>Initial release</li>
+</ul>
+</li>
+</ul>

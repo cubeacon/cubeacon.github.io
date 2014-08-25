@@ -142,7 +142,7 @@ a:hover {
 
 .post {
   line-height: 24px;
-  max-width: 725px;
+  max-width: 800px;
   clear: both;
 }
 
@@ -243,6 +243,8 @@ a:hover {
 
 .post-link {
   margin-bottom: 0.75em;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .post-title {
