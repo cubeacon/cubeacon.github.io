@@ -9,14 +9,13 @@ categories: posts
 
 <h2 id="cubeacon-sdk-installation">Cubeacon SDK Installation</h2>
 <ol>
-<li>Register to KiiCloud first using this <a href="http://docs.cubeacon.com/saas/signup-kii/">guide</a>.</li>
 <li>Download the framework and drag in into the &#39;Frameworks&#39; section in your XCode project.</li>
 <li>Ensure the following frameworks and a library exist in your project :<ul>
 <li>libsqlite3.dylib</li>
 </ul>
 </li>
 <li>Extract <code>CubeaconSDK-iOS-xxx.zip</code>, drag in <code>Cubeacon.plist</code> to Xcode project.</li>
-<li>Then drag in <code>CBKit.framework</code> into the <code>Frameworks</code> section in your XCode project.</li>
+<li>Then drag in <code>CuBeacon.framework</code> into the <code>Frameworks</code> section in your XCode project.</li>
 <li><p>Add the following code to initialize Cubeacon SDK in your AppDelegate&#39;s <code>application:didFinishLaunchingWithOptions</code> method :</p>
 <pre><code class="lang-ios"> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  {
@@ -32,7 +31,7 @@ categories: posts
 </code></pre>
 </li>
 <li><p>Open your project settings and go to the <code>Capabilities</code> tab. Setting like this screenshot below :</p>
-<p> <img src="https://raw.githubusercontent.com/cubeacon/ios-cubeacon-sample/master/capabilities.png" alt="Add Capabilities"></p>
+<p> <img src="./capabilities.png" alt="Add Capabilities"></p>
 </li>
 </ol>
 <h2 id="usage-and-demos">Usage and Demos</h2>
@@ -42,18 +41,27 @@ categories: posts
     {
         [super viewDidLoad];
         [[CBApp getInstance] setDidEnterBlock:^(CBBeacon* beacon){
+            // do something when beacon entered, ex: change background color
             [self.view setBackgroundColor:beacon.color];
         }];
         [[CBApp getInstance] setDidExitBlock:^(CBBeacon* beacon, NSTimeInterval interval){
+            // do something when beacon exited, ex: change background color
             [self.view setBackgroundColor:[UIColor whiteColor]];
         }];
         [[CBApp getInstance] setDidChangeNearestBlock:^(CBBeacon* old, CBBeacon* current){
+            // do something when nearest beacon changed, ex: change background color
             [self.view setBackgroundColor:current.color];
         }];
     }
 </code></pre>
 <h2 id="changelog">Changelog</h2>
 <ul>
+<li>1.0.0 (November 10, 2014)<ul>
+<li>Improve stability</li>
+<li>Comply with current Cubeacon SaaS v1.0.0</li>
+<li>Compatible with iOS 8</li>
+</ul>
+</li>
 <li>0.5.0 (August 25, 2014)<ul>
 <li>Initial release</li>
 </ul>

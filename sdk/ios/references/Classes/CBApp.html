@@ -66,6 +66,12 @@
 	
 	<option value="//api/name/getInstance">&nbsp;&nbsp;&nbsp;&nbsp;+ getInstance</option>
 	
+	<option value="//api/name/scannedBeacons">&nbsp;&nbsp;&nbsp;&nbsp;+ scannedBeacons</option>
+	
+	<option value="//api/name/sdkCode">&nbsp;&nbsp;&nbsp;&nbsp;+ sdkCode</option>
+	
+	<option value="//api/name/sdkVersion">&nbsp;&nbsp;&nbsp;&nbsp;+ sdkVersion</option>
+	
 	<option value="//api/name/setupWithPlist:">&nbsp;&nbsp;&nbsp;&nbsp;+ setupWithPlist:</option>
 	
 	
@@ -126,6 +132,12 @@
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getInstance">getInstance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scannedBeacons">scannedBeacons</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sdkCode">sdkCode</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sdkVersion">sdkVersion</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setupWithPlist:">setupWithPlist:</a></span></li>
 	
@@ -268,6 +280,24 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/getInstance">+&nbsp;getInstance</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scannedBeacons">+&nbsp;scannedBeacons</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sdkVersion">+&nbsp;sdkVersion</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sdkCode">+&nbsp;sdkCode</a></code>
 	</span>
 	
 	
@@ -748,6 +778,144 @@ The content string is defined on setting file.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/scannedBeacons" title="scannedBeacons"></a>
+	<h3 class="subsubtitle method-title">scannedBeacons</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get scanned beacons.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSArray *)scannedBeacons</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Array of CBBeacon that is to be scanned by the SDK.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get scanned beacons.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CBApp.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sdkCode" title="sdkCode"></a>
+	<h3 class="subsubtitle method-title">sdkCode</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get SDK version code.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSUInteger)sdkCode</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>integer representation of the sdk version code</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get SDK version code.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CBApp.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sdkVersion" title="sdkVersion"></a>
+	<h3 class="subsubtitle method-title">sdkVersion</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get SDK version String.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)sdkVersion</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>string representation of the sdk version</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get SDK version String.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CBApp.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/setupWithPlist:" title="setupWithPlist:"></a>
 	<h3 class="subsubtitle method-title">setupWithPlist:</h3>
 	
@@ -872,7 +1040,7 @@ The content string is defined on setting file.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 PT. Eyro . All rights reserved. (Last updated: 2014-08-12)</span><br />
+						<p><span class="copyright">&copy; 2014 PT. Eyro . All rights reserved. (Last updated: 2014-11-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
