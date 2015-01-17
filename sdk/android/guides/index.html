@@ -13,7 +13,11 @@ categories: posts
 <li>Extract <code>CubeaconSDK-Android-xxx.zip</code>, copy <code>Cubeacon.properties</code> to the root of your project&#39;s Java <code>src</code> source folder.</li>
 <li>Then copy <code>CuBeacon-xxx.jar</code> to your <code>libs</code> directory.</li>
 <li><p>Add following permissions and service declaration to your <code>AndroidManifest.xml</code>:</p>
-<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Needed permissions in order to connect to internet. --&gt;</span>
+<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Needed permissions in order to generate meta users. --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.READ_PHONE_STATE"</span>/&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.ACCESS_WIFI_STATE"</span>/&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- Needed permissions in order to connect to internet. --&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.INTERNET"</span> /&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span>
 
@@ -54,7 +58,7 @@ categories: posts
 <p>Quick start to download cloud data :</p>
 <pre><code class="lang-java">CBApp.refreshBeaconInBackground(<span class="hljs-keyword">new</span> CB.RefreshBeacon() {
     <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefreshCompleted</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefreshCompleted</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> result, String messages)</span> </span>{
         <span class="hljs-comment">// do something after download complete</span>
         <span class="hljs-comment">// like showing main screen of your app</span>
     }
@@ -80,19 +84,53 @@ categories: posts
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconChanged</span><span class="hljs-params">(CBBeacon old, CBBeacon current)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearestBeaconChanged</span><span class="hljs-params">(CBBeacon old, CBBeacon current)</span> </span>{
             <span class="hljs-comment">// do something when nearest beacon changed</span>
+            <span class="hljs-keyword">if</span>(current.getStoryline().equals(Storyline.IMAGE)){
+                <span class="hljs-comment">// display a brochure image</span>
+            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.TEXT)</span>)</span>{
+                <span class="hljs-comment">// show text alert/notification</span>
+            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.HTML)</span>)</span>{
+                <span class="hljs-comment">// show html page via webview</span>
+            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.URL)</span>)</span>{
+                <span class="hljs-comment">// open url in a webview/browser</span>
+            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.VIDEO)</span>)</span>{
+                <span class="hljs-comment">// play a video streaming</span>
+            }
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconEmpty</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">// do something when no beacon detected</span>
         }
     }
 </code></pre>
+<h3 id="meta-users">Meta Users</h3>
+<p>By improving analytics usage and user engagement, Cubeacon SDK enhanced with <code>Meta User</code> module. This module is optional. So if you want to get user informations like <code>fullname</code> and <code>email</code>, show a form with 2 textinput and you can save into cloud like this :</p>
+<pre><code class="lang-java">    CBUser.setUserData(<span class="hljs-string">"User fullname"</span>, <span class="hljs-string">"User valid email"</span>);
+    CBUser.currentUser().sendDataInBackground(<span class="hljs-keyword">new</span> Callback() {
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCompleted</span><span class="hljs-params">(Exception exp)</span> </span>{
+            <span class="hljs-keyword">if</span> (exp == <span class="hljs-keyword">null</span>)
+                <span class="hljs-comment">// show succesfull message</span>
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-comment">// show error message by exp.getMessage()</span>
+        }
+    });
+</code></pre>
 <h2 id="changelog">Changelog</h2>
 <ul>
+<li>1.2.0 (January 17, 2015)<ul>
+<li>Add meta user for analytics</li>
+<li>Comply with current Cubeacon SaaS v1.2.0</li>
+</ul>
+</li>
 <li>1.0.0 (November 10, 2014)<ul>
 <li>Add new base CBActivity class</li>
-<li>Add kill switch based on monthly API call usage</li>
-<li>Combine all required library into a jar library file</li>
+<li>Improve stability</li>
+<li>Comply with current Cubeacon SaaS v1.0.0</li>
+<li>Combine all required library into single file</li>
 <li>Fix automatic background and foreground scanning</li>
-<li>Fix some bugs</li>
 </ul>
 </li>
 <li>0.5.0 (August 25, 2014)<ul>
