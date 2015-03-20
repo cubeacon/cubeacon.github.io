@@ -6,19 +6,19 @@ date:   2014-07-17 18:00:00
 categories: posts
 ---
 
-
 <h2 id="cubeacon-sdk-installation">Cubeacon SDK Installation</h2>
 <ol>
 <li>Register to <a href="http://developer.cubeacon.com">Cubeacon SaaS</a> and download <code>CubeaconSDK-Android-xxx.zip</code>.</li>
 <li>Extract <code>CubeaconSDK-Android-xxx.zip</code>, copy <code>Cubeacon.properties</code> to the root of your project&#39;s Java <code>src</code> source folder.</li>
 <li>Then copy <code>CuBeacon-xxx.jar</code> to your <code>libs</code> directory.</li>
-<li><p>Add following permissions and service declaration to your <code>AndroidManifest.xml</code>:</p>
+<li><p>Add following permissions, activity and service declaration to your <code>AndroidManifest.xml</code>:</p>
 <pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Needed permissions in order to generate meta users. --&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.READ_PHONE_STATE"</span>/&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.ACCESS_WIFI_STATE"</span>/&gt;</span>
 
  <span class="hljs-comment">&lt;!-- Needed permissions in order to connect to internet. --&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.INTERNET"</span> /&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.ACCESS_NETWORK_STATE"</span> /&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span>
 
  <span class="hljs-comment">&lt;!-- Needed permissions in order to scan for beacons. --&gt;</span>
@@ -30,7 +30,14 @@ categories: posts
      <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.hardware.bluetooth_le"</span>
      <span class="hljs-attribute">android:required</span>=<span class="hljs-value">"true"</span> /&gt;</span>
 </code></pre>
-<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Cubeacon service responsible for scanning beacons. --&gt;</span>
+<p> In application tag, add this lines of code :</p>
+<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Storyline activity responsible to show campaign alert/ notification --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">activity</span> 
+     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.eyro.cubeacon.StorylineActivity"</span>
+     <span class="hljs-attribute">android:configChanges</span>=<span class="hljs-value">"orientation|screenSize"</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">activity</span>&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- Cubeacon service responsible for scanning beacons. --&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">service</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.eyro.cubeacon.CBService"</span> 
      <span class="hljs-attribute">android:exported</span>=<span class="hljs-value">"false"</span> /&gt;</span>
  <span class="hljs-comment">&lt;!-- Service that responsible to send Analytic data --&gt;</span>
@@ -56,7 +63,7 @@ categories: posts
 <h2 id="usage-and-demos">Usage and Demos</h2>
 <p>You can import <code>Cubeacon SDK Demos</code> that located in this repo to your ADT. After initialization, you must download all beacon data from Cloud first.</p>
 <p>Quick start to download cloud data :</p>
-<pre><code class="lang-java">CBApp.refreshBeaconInBackground(<span class="hljs-keyword">new</span> CB.RefreshBeacon() {
+<pre><code class="lang-java">CBApp.refreshBeaconInBackground(<span class="hljs-keyword">new</span> CBConstant.RefreshBeacon() {
     <span class="hljs-annotation">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefreshCompleted</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> result, String messages)</span> </span>{
         <span class="hljs-comment">// do something after download complete</span>
@@ -103,6 +110,21 @@ categories: posts
         <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconEmpty</span><span class="hljs-params">()</span> </span>{
             <span class="hljs-comment">// do something when no beacon detected</span>
         }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onImmediateBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity are immediate</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity are near</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFarBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity are far</span>
+        }
     }
 </code></pre>
 <h3 id="meta-users">Meta Users</h3>
@@ -120,8 +142,16 @@ categories: posts
 </code></pre>
 <h2 id="changelog">Changelog</h2>
 <ul>
+<li>1.3.0 (February 28, 2015)<ul>
+<li>New storyline with custom campaign like showing Image, Video, Url web page and HTML formatted content.</li>
+<li>New analytic data based new storyline</li>
+<li>Comply with current Cubeacon SaaS v1.3.0</li>
+<li>Support Android 5.0 Lollipop</li>
+</ul>
+</li>
 <li>1.2.0 (January 17, 2015)<ul>
 <li>Add meta user for analytics</li>
+<li>Add storyline for beacon scenario</li>
 <li>Comply with current Cubeacon SaaS v1.2.0</li>
 </ul>
 </li>
