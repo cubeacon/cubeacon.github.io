@@ -6,76 +6,81 @@ date:   2014-07-17 18:00:00
 categories: posts
 ---
 
-<h2 id="cubeacon-sdk-installation">Cubeacon SDK Installation</h2>
-<ol>
-<li>Register to <a href="http://developer.cubeacon.com">Cubeacon SaaS</a> and download <code>CubeaconSDK-Android-xxx.zip</code>.</li>
-<li>Extract <code>CubeaconSDK-Android-xxx.zip</code>, copy <code>Cubeacon.properties</code> to the root of your project&#39;s Java <code>src</code> source folder.</li>
-<li>Then copy <code>CuBeacon-xxx.jar</code> to your <code>libs</code> directory.</li>
-<li><p>Add following permissions, activity and service declaration to your <code>AndroidManifest.xml</code>:</p>
-<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Needed permissions in order to generate meta users. --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.READ_PHONE_STATE"</span>/&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.ACCESS_WIFI_STATE"</span>/&gt;</span>
-
- <span class="hljs-comment">&lt;!-- Needed permissions in order to connect to internet. --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.INTERNET"</span> /&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.ACCESS_NETWORK_STATE"</span> /&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span>
-
- <span class="hljs-comment">&lt;!-- Needed permissions in order to scan for beacons. --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.BLUETOOTH"</span> /&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-permission</span> <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;</span>
-
- <span class="hljs-comment">&lt;!-- Declaration that this app is usable on phones with Bluetooth Low Energy. --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">uses-feature</span>
-     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"android.hardware.bluetooth_le"</span>
-     <span class="hljs-attribute">android:required</span>=<span class="hljs-value">"true"</span> /&gt;</span>
-</code></pre>
-<p> In application tag, add this lines of code :</p>
-<pre><code class="lang-xml"> <span class="hljs-comment">&lt;!-- Storyline activity responsible to show campaign alert/ notification --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">activity</span> 
-     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.eyro.cubeacon.StorylineActivity"</span>
-     <span class="hljs-attribute">android:configChanges</span>=<span class="hljs-value">"orientation|screenSize"</span>&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-title">activity</span>&gt;</span>
-
- <span class="hljs-comment">&lt;!-- Cubeacon service responsible for scanning beacons. --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">service</span> 
-     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.eyro.cubeacon.CBService"</span> 
-     <span class="hljs-attribute">android:exported</span>=<span class="hljs-value">"false"</span> /&gt;</span>
- <span class="hljs-comment">&lt;!-- Service that responsible to send Analytic data --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-title">service</span> 
-     <span class="hljs-attribute">android:name</span>=<span class="hljs-value">"com.kii.cloud.analytics.EventUploadService"</span> /&gt;</span>
-</code></pre>
-</li>
-<li><p>Create custom application class and add the following code to the <code>onCreate()</code> method to initialize the Cubeacon SDK.</p>
-<pre><code class="lang-java"> <span class="hljs-annotation">@Override</span>
- <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
-     <span class="hljs-keyword">super</span>.onCreate();
-     <span class="hljs-comment">// Cubeacon SDK Initialization</span>
-     CBApp.setup(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Cubeacon.properties"</span>);
- }
-</code></pre>
-<p> Don&#39;t forget to initialize your custom application class to <code>AndroidManifest.xml</code></p>
-<p> (Optional) You can add some custom setup :</p>
+<h1><a id="Cubeacon_Sample_Android_Project_0"></a>Cubeacon Sample Android Project</h1>
+<p>This repository is reserved for Android Cubeacon SDK Demos app.</p>
+<h2><a id="Cubeacon_SDK_Overview_4"></a>Cubeacon SDK Overview</h2>
+<p>Cubeacon SDK for Android is a library to allow interaction with any beacons. The SDK system requirements are Android 4.3 or above and Bluetooth Low Energy.</p>
+<p><strong>Cubeacon SDK allows for :</strong></p>
 <ul>
-<li>Enable Cubeacon SDK debug logging when on development mode by calling <code>CBApp.enableDebugLogging(true)</code>.</li>
-<li>Enable download image brohure on local path by calling <code>CBapp.enableDownloadImage(true)</code>.</li>
+<li>Integrating with Cubeacon BaaS</li>
+<li>Scanning any beacons on a foreground UI or on background as a service</li>
+<li>Showing alert (foreground) or notifications (background) when any beacons entered region (onEnter), exited region (onExit), nearest detected (onChange), onImmediate beacon, onNear beacon and onFar detected beacon.</li>
+<li>Showing campaign scenario based on beacons event</li>
+<li>Sending analytic to Cubeacon BaaS</li>
+</ul>
+<p><strong>Cubeacon Link :</strong></p>
+<ul>
+<li><a href="https://developer.cubeacon.com">Cubeacon Backend as a Service</a></li>
+<li><a href="http://docs.cubeacon.com/sdk/android/references/index.html">Android JavaDoc Documentation</a></li>
+<li><a href="https://github.com/cubeacon/android-cubeacon-sample/issues">Provide us Comments</a></li>
+</ul>
+<h2><a id="Cubeacon_SDK_Installation_20"></a>Cubeacon SDK Installation</h2>
+<ol>
+<li>
+<p>Register to <a href="https://developer.cubeacon.com">Cubeacon BaaS</a> and download <code>CubeaconSDK-Android-xxx.zip</code>.</p>
+</li>
+<li>
+<p>Extract <code>CubeaconSDK-Android-xxx.zip</code>, copy <code>Cubeacon.properties</code> to the root of your project’s Java <code>assets</code> folder.</p>
+</li>
+<li>
+<p>Then copy <code>CubeaconSDK-xxx.aar</code> to your <code>libs</code> directory.</p>
+</li>
+<li>
+<p>On your <code>build.gradle</code> within <code>app</code> module, add this lines below before <code>dependencies</code> tag</p>
+<pre><code><span class="hljs-keyword">repositories</span>{
+    <span class="hljs-keyword">flatDir</span> {
+        dirs <span class="hljs-string">'libs'</span>
+    }
+}
+</code></pre>
+<p>Then add <code>compile 'com.eyro.cubeacon:CubeaconSDK:1.5.0@aar'</code> into your <code>dependecies</code>.</p>
+</li>
+<li>
+<p>Create custom application class and add the following code to the <code>onCreate()</code> method to initialize the Cubeacon SDK.</p>
+<pre><code class="language-java"><span class="hljs-annotation">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate();
+
+    <span class="hljs-comment">// Cubeacon SDK Initialization</span>
+    CBApp.initialize(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Cubeacon.properties"</span>);
+}
+</code></pre>
+<p>Don’t forget to initialize your custom application class to <code>AndroidManifest.xml</code></p>
+<p>(Optional) You can add some custom setup :</p>
+<ul>
+<li>Enable Cubeacon SDK debug logging when on development mode by calling <code>CBApp.enableDebugLogging();</code> before initialize SDK.</li>
 </ul>
 </li>
 </ol>
-<h2 id="usage-and-demos">Usage and Demos</h2>
-<p>You can import <code>Cubeacon SDK Demos</code> that located in this repo to your ADT. After initialization, you must download all beacon data from Cloud first.</p>
+<h2><a id="Usage_and_Demos_48"></a>Usage and Demos</h2>
+<p>You can import <code>Cubeacon Demos</code> that located in this repo to your Android Studio. After initialization, you must download all beacon data from Cloud first.</p>
 <p>Quick start to download cloud data :</p>
-<pre><code class="lang-java">CBApp.refreshBeaconInBackground(<span class="hljs-keyword">new</span> CBConstant.RefreshBeacon() {
+<pre><code class="language-java">CBApp.getInstance().getDataInBackground(<span class="hljs-keyword">new</span> RequestCallback() {
     <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefreshCompleted</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> result, String messages)</span> </span>{
-        <span class="hljs-comment">// do something after download complete</span>
-        <span class="hljs-comment">// like showing main screen of your app</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCompleted</span><span class="hljs-params">(Exception e)</span> </span>{
+        <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// show error message</span>
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-comment">// do something after download complete like showing main screen</span>
     }
 });
 </code></pre>
-<p>(Info) <code>CBApp.refreshBeaconInBackground</code> are implemented using background <code>AsyncTask</code> method.</p>
-<p>Then, extends your activity that used for detected beacon to <code>CBActivity</code> class and implement all abstract method :</p>
-<pre><code class="lang-java">    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CBActivity</span> </span>{
+<p>(Info) <code>CBApp.getInstance().getDataInBackground</code> are implemented using background <code>AsyncTask</code> method.</p>
+<h3><a id="Main_Activity_66"></a>Main Activity</h3>
+<h4><a id="1_Using_SDK_Abstract_Activity_67"></a>1. Using SDK Abstract Activity</h4>
+<p>Then, extends your activity that used for detected beacon to <code>CBAppCompatActivity</code> class and implement all abstract method :</p>
+<pre><code class="language-java">    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CBAppCompatActivity</span> </span>{
         <span class="hljs-annotation">@Override</span>
         <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
             <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
@@ -83,86 +88,186 @@ categories: posts
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconExited</span><span class="hljs-params">(CBBeacon beacon, <span class="hljs-keyword">long</span> timeInterval)</span> </span>{
-            <span class="hljs-comment">// do something when beacon exited region</span>
-        }
-
-        <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconEntered</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEnterBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
             <span class="hljs-comment">// do something when beacon entered region</span>
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearestBeaconChanged</span><span class="hljs-params">(CBBeacon old, CBBeacon current)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onExitBeacon</span><span class="hljs-params">(CBBeacon beacon, <span class="hljs-keyword">long</span> timeInterval)</span> </span>{
+            <span class="hljs-comment">// do something when beacon exited region</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearestBeaconChanged</span><span class="hljs-params">(CBBeacon old, CBBeacon current)</span> </span>{
+            CBCampaignType campaign = current.getStoryline().getCampaign();
+
             <span class="hljs-comment">// do something when nearest beacon changed</span>
-            <span class="hljs-keyword">if</span>(current.getStoryline().equals(Storyline.IMAGE)){
+            <span class="hljs-keyword">if</span> (campaign == CBCampaignType.IMAGE) {
                 <span class="hljs-comment">// display a brochure image</span>
-            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.TEXT)</span>)</span>{
-                <span class="hljs-comment">// show text alert/notification</span>
-            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.HTML)</span>)</span>{
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(campaign == CBCampaignType.HTML) {
                 <span class="hljs-comment">// show html page via webview</span>
-            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.URL)</span>)</span>{
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(campaign == CBCampaignType.URL) {
                 <span class="hljs-comment">// open url in a webview/browser</span>
-            }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(current.getStoryline()</span>.<span class="hljs-title">equals</span><span class="hljs-params">(Storyline.VIDEO)</span>)</span>{
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(campaign == CBCampaignType.VIDEO) {
                 <span class="hljs-comment">// play a video streaming</span>
             }
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBeaconEmpty</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEmptyBeacon</span><span class="hljs-params">()</span> </span>{
             <span class="hljs-comment">// do something when no beacon detected</span>
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onImmediateBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
-            <span class="hljs-comment">// do something when beacon proximity are immediate</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onImmediateBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity is immediate</span>
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
-            <span class="hljs-comment">// do something when beacon proximity are near</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity is near</span>
         }
 
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFarBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
-            <span class="hljs-comment">// do something when beacon proximity are far</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFarBeacon</span><span class="hljs-params">(CBBeacon beacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon proximity is far</span>
         }
     }
 </code></pre>
-<h3 id="meta-users">Meta Users</h3>
-<p>By improving analytics usage and user engagement, Cubeacon SDK enhanced with <code>Meta User</code> module. This module is optional. So if you want to get user informations like <code>fullname</code> and <code>email</code>, show a form with 2 textinput and you can save into cloud like this :</p>
-<pre><code class="lang-java">    CBUser.setUserData(<span class="hljs-string">"User fullname"</span>, <span class="hljs-string">"User valid email"</span>);
-    CBUser.currentUser().sendDataInBackground(<span class="hljs-keyword">new</span> Callback() {
+<h4><a id="2_Using_Custom_Activity_124"></a>2. Using Custom Activity</h4>
+<p>If you want to extend to your own abstract or parent activity, you can manually manage Cubeacon SDK Service into your activity.</p>
+<pre><code class="language-java"><span class="hljs-annotation">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+
+    CBApp.getInstance().setBeaconListener(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> BeaconListener() {
         <span class="hljs-annotation">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCompleted</span><span class="hljs-params">(Exception exp)</span> </span>{
-            <span class="hljs-keyword">if</span> (exp == <span class="hljs-keyword">null</span>)
-                <span class="hljs-comment">// show succesfull message</span>
-            <span class="hljs-keyword">else</span>
-                <span class="hljs-comment">// show error message by exp.getMessage()</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onImmediateBeacon</span><span class="hljs-params">(CBBeacon cbBeacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon in immediate proximity</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearBeacon</span><span class="hljs-params">(CBBeacon cbBeacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon in near proximity</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFarBeacon</span><span class="hljs-params">(CBBeacon cbBeacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon in far proximity</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEnterBeacon</span><span class="hljs-params">(CBBeacon cbBeacon)</span> </span>{
+            <span class="hljs-comment">// do something when beacon entering region</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onExitBeacon</span><span class="hljs-params">(CBBeacon cbBeacon, <span class="hljs-keyword">long</span> interval)</span> </span>{
+            <span class="hljs-comment">// do something when beacon exiting region</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNearestBeaconChanged</span><span class="hljs-params">(CBBeacon cbBeacon, CBBeacon cbBeacon1)</span> </span>{
+            <span class="hljs-comment">// do something when nearest beacon changed</span>
+        }
+
+        <span class="hljs-annotation">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEmptyBeacon</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">// do something when there is no beacon detected</span>
         }
     });
+    <span class="hljs-comment">// create Cubeacon service after initializing beacon's listener</span>
+    CBApp.getInstance().createService();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">super</span>.onResume();
+
+    <span class="hljs-comment">// Check all requirement service and permission.</span>
+    <span class="hljs-keyword">if</span> (SystemRequirementManager.checkAllRequirementUsingDefaultDialog(<span class="hljs-keyword">this</span>)) {
+        <span class="hljs-comment">// start Cubeacon service after all requirements complied</span>
+        CBApp.getInstance().startService();
+    }
+}
+
+<span class="hljs-annotation">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">super</span>.onStart();
+    <span class="hljs-comment">// Check if device supports Bluetooth Low Energy.</span>
+    <span class="hljs-keyword">if</span> (!SystemRequirementChecker.isBluetoothLeAvailable(<span class="hljs-keyword">this</span>)) {
+        <span class="hljs-comment">// do something if there is no BLE on smartphone</span>
+        <span class="hljs-comment">// like showing alert dialog or finish the activity</span>
+    }
+}
 </code></pre>
-<h2 id="changelog">Changelog</h2>
+<h3><a id="Improve_Battery_Life_192"></a>Improve Battery Life</h3>
+<p>By setting scan beacon period, we can improve battery life without losing scanning result. Especially on production application. This is how you can do:</p>
+<h6><a id="For_Production_195"></a>For Production</h6>
+<pre><code class="language-java"><span class="hljs-comment">// best on battery life with some delayed scanning result</span>
+CBApp.getInstance().setScanPeriod(ScanningMode.LOW);
+
+<span class="hljs-comment">// good on battery life and better scanning result</span>
+CBApp.getInstance().setScanPeriod(ScanningMode.NORMAL);
+</code></pre>
+<h6><a id="For_Development_204"></a>For Development</h6>
+<pre><code class="language-java"><span class="hljs-comment">// draining battery life and fast scanning result</span>
+CBApp.getInstance().setScanPeriod(ScanningMode.HIGH);
+
+<span class="hljs-comment">// draining a lot of battery life, but provide best scanning result</span>
+CBApp.getInstance().setScanPeriod(ScanningMode.VERY_HIGH);
+</code></pre>
+<h3><a id="Meta_Users_213"></a>Meta Users</h3>
+<p>By improving analytics usage and user engagement, Cubeacon SDK enhanced with <code>Meta User</code> module. This module is optional. So if you want to get user information like <code>fullname</code> and <code>email</code>, show a form with 2 textinput and you can save into cloud like this :</p>
+<pre><code class="language-java">    CBUser.currentUser()
+         .setName(<span class="hljs-string">"Your fullname here..."</span>)
+         .setEmail(<span class="hljs-string">"Your email here..."</span>)
+         .sendDataInBackground(<span class="hljs-keyword">new</span> RequestCallback() {
+             <span class="hljs-annotation">@Override</span>
+             <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCompleted</span><span class="hljs-params">(Exception e)</span> </span>{
+                 <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>) {
+                     <span class="hljs-comment">// show error message</span>
+                     <span class="hljs-keyword">return</span>;
+                 }
+             <span class="hljs-comment">// show success message</span>
+          }
+    });
+</code></pre>
+<h2><a id="Changelog_231"></a>Changelog</h2>
 <ul>
-<li>1.3.1 (April 18, 2015)<ul>
+<li>1.5.0 (January 23, 2016)
+<ul>
+<li>New enhancement scanning method for a faster detecting beacons.</li>
+<li>New AAR package, comply with Android Studio.</li>
+<li>New feature, added scan period mode for better battery life.</li>
+<li>New System Requirements Checker, comply with Android M or higher.</li>
+<li>Comply with AppCompat library v7 for activity bundled with SDK.</li>
+<li>Add possibility to customize alert and notification.</li>
+<li>Fix some bugs and improve stability.</li>
+</ul>
+</li>
+<li>1.3.1 (April 18, 2015)
+<ul>
 <li>Fix optional parameter when downloading data from cloud</li>
 <li>Add control to URL WebView Activity</li>
 </ul>
 </li>
-<li>1.3.0 (February 28, 2015)<ul>
+<li>1.3.0 (February 28, 2015)
+<ul>
 <li>New storyline with custom campaign like showing Image, Video, Url web page and HTML formatted content.</li>
 <li>New analytic data based new storyline</li>
 <li>Comply with current Cubeacon SaaS v1.3.0</li>
 <li>Support Android 5.0 Lollipop</li>
 </ul>
 </li>
-<li>1.2.0 (January 17, 2015)<ul>
+<li>1.2.0 (January 17, 2015)
+<ul>
 <li>Add meta user for analytics</li>
 <li>Add storyline for beacon scenario</li>
 <li>Comply with current Cubeacon SaaS v1.2.0</li>
 </ul>
 </li>
-<li>1.0.0 (November 10, 2014)<ul>
+<li>1.0.0 (November 10, 2014)
+<ul>
 <li>Add new base CBActivity class</li>
 <li>Improve stability</li>
 <li>Comply with current Cubeacon SaaS v1.0.0</li>
@@ -170,7 +275,8 @@ categories: posts
 <li>Fix automatic background and foreground scanning</li>
 </ul>
 </li>
-<li>0.5.0 (August 25, 2014)<ul>
+<li>0.5.0 (August 25, 2014)
+<ul>
 <li>Initial release</li>
 </ul>
 </li>
