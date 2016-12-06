@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>CBNotificationEventType Constants Reference</title>
+	<title>CBProximity Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">CuBeaconSDK </a>
+				<a href="../index.html">Cubeacon </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Eyro Digital Teknologi, Ltd. </a>
+				<a href="../index.html">Eyro Labs</a>
 			</p>
 			
 		</div>
@@ -59,13 +59,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">CBNotificationEventType Constants Reference</h1>
+					<h1 class="title">CBProximity Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
 	<td>CBConstant.h</td>
+</tr><tr>
+	<th>References</th>
+	<td><a href="Classes/CBBeacon.html">CBBeacon</a></td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +78,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">CBNotificationEventType</h3>
+                    <h3 class="subsubtitle method-title">CBProximity</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>Notification event type</p>
+                        <p><code>CBProximity</code> enum represents the current proximity of a <a href="../Classes/CBBeacon.html"><code>CBBeacon</code></a>.</p>
 					</div>
 					
 					
@@ -87,13 +90,15 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_OPTIONS(NSUInteger, CBNotificationEventType ) {<br>
+                        <code>typedef NS_ENUM(uint8_t, CBProximity ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">CBNotificationEventTypeNone</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">CBProximityUnknown</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBNotificationEventTypeOnEnter</a> = 1 &lt; &lt; 0,<br>
+                            &nbsp;&nbsp; <a href="">CBProximityImmediate</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBNotificationEventTypeOnExit</a> = 1 &lt; &lt; 1,<br>
+                            &nbsp;&nbsp; <a href="">CBProximityNear</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CBProximityFar</a>,<br>
                             
                             };</code>
                     
@@ -103,11 +108,12 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="CBNotificationEventTypeNone"></a><code>CBNotificationEventTypeNone</code></dt>
+                            <dt><a name="" title="CBProximityUnknown"></a><code>CBProximityUnknown</code></dt>
 <dd>
 
 
-<p>The application may not present any Notification upon any beacon event being received</p>
+<pre><code> State unknown, update imminent.
+</code></pre>
 
 
 
@@ -120,11 +126,12 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBNotificationEventTypeOnEnter"></a><code>CBNotificationEventTypeOnEnter</code></dt>
+                            <dt><a name="" title="CBProximityImmediate"></a><code>CBProximityImmediate</code></dt>
 <dd>
 
 
-<p>The application display alert notification on entering beacon region</p>
+<pre><code> Beacon proximity are immediate. Less than a metre.
+</code></pre>
 
 
 
@@ -137,11 +144,30 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBNotificationEventTypeOnExit"></a><code>CBNotificationEventTypeOnExit</code></dt>
+                            <dt><a name="" title="CBProximityNear"></a><code>CBProximityNear</code></dt>
 <dd>
 
 
-<p>The application display alert notification on exiting beacon region</p>
+<pre><code> Beacon proximity are near. Less than three metres.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CBConstant.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CBProximityFar"></a><code>CBProximityFar</code></dt>
+<dd>
+
+
+<pre><code> Beacon proximity are far. More than three metres.
+</code></pre>
 
 
 
@@ -162,6 +188,15 @@
                     
 
                     
+                    <div class="method-subsection see-also-section">
+                        <h4 class="method-subtitle">See Also</h4>
+                        <ul>
+                            
+                            <li><code><p><a href="../Classes/CBBeacon.html">CBBeacon</a></p></code></li>
+                            
+                        </ul>
+                    </div>
+                    
 
                     
                     <div class="method-subsection declared-in-section">
@@ -176,7 +211,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Eyro Digital Teknologi, Ltd. . All rights reserved. Updated: 2015-03-10</p>
+						<p class="copyright">Copyright &copy; 2016 Eyro Labs. All rights reserved. Updated: 2016-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

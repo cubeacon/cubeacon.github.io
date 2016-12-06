@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">CuBeaconSDK </a>
+				<a href="../index.html">Cubeacon </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Eyro Digital Teknologi, Ltd. </a>
+				<a href="../index.html">Eyro Labs</a>
 			</p>
 			
 		</div>
@@ -56,27 +56,29 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/cbId">cbId</option>
-		
-		<option value="//api/name/cbStoryline">cbStoryline</option>
-		
-		<option value="//api/name/clBeacon">clBeacon</option>
-		
-		<option value="//api/name/color">color</option>
+		<option value="//api/name/accuracy">accuracy</option>
 		
 		<option value="//api/name/major">major</option>
 		
 		<option value="//api/name/minor">minor</option>
 		
-		<option value="//api/name/name">name</option>
+		<option value="//api/name/proximity">proximity</option>
 		
 		<option value="//api/name/proximityUUID">proximityUUID</option>
+		
+		<option value="//api/name/rssi">rssi</option>
 		
 	</optgroup>
 	
 
 	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/dictionary">- dictionary</option>
+		
+	</optgroup>
 	
 	
 </select>
@@ -100,7 +102,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>CBBeacon.h</td>
+	<td>CBBeacon.h<br />CBBeacon.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -110,7 +112,11 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Class for iBeacon representation.</p>
+						<p>A single beacon within a <a href="../Classes/CBRegion.html"><code>CBRegion</code></a>.</p>
+
+<p>The CBBeacon class represents a beacon that was encountered during region monitoring. You do not create instances of this class directly. The beacon manager object reports encountered beacons to its associated delegate object. You can use the information in a beacon object to identify which beacon was encountered.</p>
+
+<p>The identity of a beacon is defined by its <a href="#//api/name/proximityUUID">proximityUUID</a>, <a href="#//api/name/major">major</a>, and <a href="#//api/name/minor">minor</a> properties. These values are coded into the beacon itself. For a more thorough description of the meaning of those values, see <a href="../Classes/CBRegion.html"><code>CBRegion</code></a>.</p>
 					</div>
 					
 					
@@ -126,54 +132,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/name" title="name"></a>
-	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>CuBeacon beacon name.
-The value is defined by the cloud.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *name</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>CuBeacon beacon name.
-The value is defined by the cloud.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">CBBeacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/proximityUUID" title="proximityUUID"></a>
 	<h3 class="method-title"><code><a href="#//api/name/proximityUUID">&nbsp;&nbsp;proximityUUID</a></code>
 </h3>
@@ -185,13 +143,12 @@ The value is defined by the cloud.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Beacon proximity UUID.
-The value is defined by scanned beacon.</p>
+				<p>Proximity identifier associated with the beacon.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *proximityUUID</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic, copy, nonnull) NSUUID *proximityUUID</code></div>
 
 		    
 			
@@ -200,12 +157,6 @@ The value is defined by scanned beacon.</p>
 
 			
 
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Beacon proximity UUID.
-The value is defined by scanned beacon.</p>
-			</div>
 			
 
 			
@@ -233,13 +184,12 @@ The value is defined by scanned beacon.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Beacon major value.
-The value is defined by scanned beacon.</p>
+				<p>Most significant value associated with the beacon.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger major</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) NSInteger major</code></div>
 
 		    
 			
@@ -248,12 +198,6 @@ The value is defined by scanned beacon.</p>
 
 			
 
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Beacon major value.
-The value is defined by scanned beacon.</p>
-			</div>
 			
 
 			
@@ -281,13 +225,94 @@ The value is defined by scanned beacon.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Beacon minor value.
-The value is defined by scanned beacon.</p>
+				<p>Least significant value associated with the beacon.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger minor</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) NSInteger minor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/proximity" title="proximity"></a>
+	<h3 class="method-title"><code><a href="#//api/name/proximity">&nbsp;&nbsp;proximity</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Proximity of the beacon from the device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) CBProximity proximity</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeacon.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/accuracy" title="accuracy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/accuracy">&nbsp;&nbsp;accuracy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents an one sigma horizontal accuracy in meters where the measuring device&rsquo;s location is referenced at the beaconing device. This value is heavily subject to variations in an RF environment.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) double accuracy</code></div>
 
 		    
 			
@@ -299,8 +324,7 @@ The value is defined by scanned beacon.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Beacon minor value.
-The value is defined by scanned beacon.</p>
+				<p>A negative accuracy value indicates the <a href="#//api/name/proximity">proximity</a> is unknown.</p>
 			</div>
 			
 
@@ -318,8 +342,8 @@ The value is defined by scanned beacon.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/cbId" title="cbId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cbId">&nbsp;&nbsp;cbId</a></code>
+	<a name="//api/name/rssi" title="rssi"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rssi">&nbsp;&nbsp;rssi</a></code>
 </h3>
 
 	<div class="method-info">
@@ -329,13 +353,12 @@ The value is defined by scanned beacon.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>CuBeacon Id.
-The value is defined by the cloud.</p>
+				<p>Received signal strength in decibels of the specified beacon.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *cbId</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) NSInteger rssi</code></div>
 
 		    
 			
@@ -347,8 +370,7 @@ The value is defined by the cloud.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>CuBeacon Id.
-The value is defined by the cloud.</p>
+				<p>This value is an average of the RSSI samples collected since this beacon was last reported.</p>
 			</div>
 			
 
@@ -366,8 +388,8 @@ The value is defined by the cloud.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/color" title="color"></a>
-	<h3 class="method-title"><code><a href="#//api/name/color">&nbsp;&nbsp;color</a></code>
+	<a name="//api/name/dictionary" title="dictionary"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dictionary">&ndash;&nbsp;dictionary</a></code>
 </h3>
 
 	<div class="method-info">
@@ -377,117 +399,25 @@ The value is defined by the cloud.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The value is defined by the cloud.</p>
+				<p>Represent all value of this object in a <code>NSDictionary</code>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIColor *color</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>The value is defined by the cloud.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">CBBeacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/clBeacon" title="clBeacon"></a>
-	<h3 class="method-title"><code><a href="#//api/name/clBeacon">&nbsp;&nbsp;clBeacon</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Raw CLBeacon instance scanned by iOS.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CLBeacon *clBeacon</code></div>
+			<div class="method-subsection method-declaration"><code>- (nonnull NSDictionary *)dictionary</code></div>
 
 		    
 			
 
 			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Raw CLBeacon instance scanned by iOS.</p>
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>All values of this object in dictionary format.</p>
 			</div>
 			
 
 			
 
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">CBBeacon.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/cbStoryline" title="cbStoryline"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cbStoryline">&nbsp;&nbsp;cbStoryline</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Raw CBStoryline instance when detected by scanning</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CBStoryline *cbStoryline</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Raw CBStoryline instance when detected by scanning</p>
-			</div>
 			
 
 			
@@ -516,7 +446,7 @@ The value is defined by the cloud.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Eyro Digital Teknologi, Ltd. . All rights reserved. Updated: 2015-03-10</p>
+						<p class="copyright">Copyright &copy; 2016 Eyro Labs. All rights reserved. Updated: 2016-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

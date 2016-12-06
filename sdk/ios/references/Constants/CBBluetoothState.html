@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>CBEventType Constants Reference</title>
+	<title>CBBluetoothState Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">CuBeaconSDK </a>
+				<a href="../index.html">Cubeacon </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Eyro Digital Teknologi, Ltd. </a>
+				<a href="../index.html">Eyro Labs</a>
 			</p>
 			
 		</div>
@@ -59,13 +59,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">CBEventType Constants Reference</h1>
+					<h1 class="title">CBBluetoothState Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
 	<td>CBConstant.h</td>
+</tr><tr>
+	<th>References</th>
+	<td><a href="Classes/CBBluetoothManager.html">CBBluetoothManager</a></td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +78,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">CBEventType</h3>
+                    <h3 class="subsubtitle method-title">CBBluetoothState</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>Storyline beacon event type</p>
+                        <p><code>CBBluetoothState</code> enum represents the current state of a <a href="../Classes/CBBluetoothManager.html"><code>CBBluetoothManager</code></a>.</p>
 					</div>
 					
 					
@@ -87,17 +90,19 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_OPTIONS(NSUInteger, CBEventType ) {<br>
+                        <code>typedef NS_ENUM(uint8_t, CBBluetoothState ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">CBEventTypeOnEnter</a>,<br>
+                            &nbsp;&nbsp; <a href="">CBBluetoothStateUnknown</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBEventTypeOnExit</a>,<br>
+                            &nbsp;&nbsp; <a href="">CBBluetoothStateResetting</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBEventTypeOnImmediate</a>,<br>
+                            &nbsp;&nbsp; <a href="">CBBluetoothStateUnsupported</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBEventTypeOnNear</a>,<br>
+                            &nbsp;&nbsp; <a href="">CBBluetoothStateUnauthorized</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">CBEventTypeOnFar</a>,<br>
+                            &nbsp;&nbsp; <a href="">CBBluetoothStatePoweredOff</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">CBBluetoothStatePoweredOn</a>,<br>
                             
                             };</code>
                     
@@ -107,11 +112,12 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="CBEventTypeOnEnter"></a><code>CBEventTypeOnEnter</code></dt>
+                            <dt><a name="" title="CBBluetoothStateUnknown"></a><code>CBBluetoothStateUnknown</code></dt>
 <dd>
 
 
-<p>Beacon event state inside (onEnter)</p>
+<pre><code> State unknown, update imminent.
+</code></pre>
 
 
 
@@ -124,11 +130,12 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBEventTypeOnExit"></a><code>CBEventTypeOnExit</code></dt>
+                            <dt><a name="" title="CBBluetoothStateResetting"></a><code>CBBluetoothStateResetting</code></dt>
 <dd>
 
 
-<p>Beacon event state outside (onExit)</p>
+<pre><code> The connection with the system service was momentarily lost, update imminent.
+</code></pre>
 
 
 
@@ -141,11 +148,12 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBEventTypeOnImmediate"></a><code>CBEventTypeOnImmediate</code></dt>
+                            <dt><a name="" title="CBBluetoothStateUnsupported"></a><code>CBBluetoothStateUnsupported</code></dt>
 <dd>
 
 
-<p>Beacon event state in range with immediate proximity</p>
+<pre><code> The platform doesn't support the Bluetooth Low Energy Central/Client role.
+</code></pre>
 
 
 
@@ -158,11 +166,12 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBEventTypeOnNear"></a><code>CBEventTypeOnNear</code></dt>
+                            <dt><a name="" title="CBBluetoothStateUnauthorized"></a><code>CBBluetoothStateUnauthorized</code></dt>
 <dd>
 
 
-<p>Beacon event state in range with near proximity</p>
+<pre><code> The application is not authorized to use the Bluetooth Low Energy role.
+</code></pre>
 
 
 
@@ -175,11 +184,30 @@
 	
 </dd>
                             
-                            <dt><a name="" title="CBEventTypeOnFar"></a><code>CBEventTypeOnFar</code></dt>
+                            <dt><a name="" title="CBBluetoothStatePoweredOff"></a><code>CBBluetoothStatePoweredOff</code></dt>
 <dd>
 
 
-<p>Beacon event state in range with far proximity</p>
+<pre><code> Bluetooth is currently powered off.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CBConstant.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CBBluetoothStatePoweredOn"></a><code>CBBluetoothStatePoweredOn</code></dt>
+<dd>
+
+
+<pre><code> Bluetooth is currently powered on and available to use.
+</code></pre>
 
 
 
@@ -200,6 +228,15 @@
                     
 
                     
+                    <div class="method-subsection see-also-section">
+                        <h4 class="method-subtitle">See Also</h4>
+                        <ul>
+                            
+                            <li><code><p><a href="../Classes/CBBluetoothManager.html">CBBluetoothManager</a></p></code></li>
+                            
+                        </ul>
+                    </div>
+                    
 
                     
                     <div class="method-subsection declared-in-section">
@@ -214,7 +251,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Eyro Digital Teknologi, Ltd. . All rights reserved. Updated: 2015-03-10</p>
+						<p class="copyright">Copyright &copy; 2016 Eyro Labs. All rights reserved. Updated: 2016-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

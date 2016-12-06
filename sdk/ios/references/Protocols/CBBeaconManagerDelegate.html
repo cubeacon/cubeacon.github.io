@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>CBBeaconManagerDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Cubeacon </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Eyro Labs</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/didChangeAuthorizationStatus:">- didChangeAuthorizationStatus:</option>
+		
+		<option value="//api/name/didDetermineState:forRegion:">- didDetermineState:forRegion:</option>
+		
+		<option value="//api/name/didEnterRegion:">- didEnterRegion:</option>
+		
+		<option value="//api/name/didExitRegion:">- didExitRegion:</option>
+		
+		<option value="//api/name/didRangeBeacons:inRegion:">- didRangeBeacons:inRegion:</option>
+		
+		<option value="//api/name/didStartMonitoringForRegion:">- didStartMonitoringForRegion:</option>
+		
+		<option value="//api/name/monitoringDidFailForRegion:withError:">- monitoringDidFailForRegion:withError:</option>
+		
+		<option value="//api/name/rangingBeaconsDidFailForRegion:withError:">- rangingBeaconsDidFailForRegion:withError:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">CBBeaconManagerDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>CBBeaconManager.h<br />CBConstant.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Delegate for <a href="../Classes/CBBeaconManager.html"><code>CBBeaconManager</code></a>.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/didChangeAuthorizationStatus:" title="didChangeAuthorizationStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didChangeAuthorizationStatus:">&ndash;&nbsp;didChangeAuthorizationStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when the authorization status changes for this application.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didChangeAuthorizationStatus:(CBAuthorizationStatus)<em>status</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>status</code></th>
+						<td><p>The new authorization status for the application.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that the authorization status for the application changed.</p>
+
+<p>This method is called whenever the application’s ability to use location services changes. Changes can occur because the user allowed or denied the use of location services for your application or for the system as a whole.</p>
+
+<p>If the authorization status is already known when you call the <code>requestWhenInUseAuthorization</code> or <code>requestAlwaysAuthorization</code> method, the beacon manager does not report the current authorization status to this method. The beacon manager only reports changes to the authorization status. For example, it calls this method when the status changes from <code>CBAuthorizationStatusNotDetermined</code> to <code>CBAuthorizationStatusAuthorizedWhenInUse</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Constants/CBAuthorizationStatus.html">CBAuthorizationStatus</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didRangeBeacons:inRegion:" title="didRangeBeacons:inRegion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didRangeBeacons:inRegion:">&ndash;&nbsp;didRangeBeacons:inRegion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when a new set of beacons are available in the specified region. If beacons is empty, it may be assumed no beacons that match the specified region are nearby. Similarly if a specific beacon no longer appears in beacons, it may be assumed the beacon is no longer received by the device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didRangeBeacons:(NSArray&lt;CBBeacon*&gt; *_Nonnull)<em>beacons</em> inRegion:(CBRegion *_Nonnull)<em>region</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>beacons</code></th>
+						<td><p>An array of <a href="../Classes/CBBeacon.html"><code>CBBeacon</code></a> objects representing the beacons currently in range. If beacons is empty, you can assume that no beacons matching the specified region are in range. When a specific beacon is no longer in beacons, that beacon is no longer received by the device. You can use the information in the <a href="../Classes/CBBeacon.html">CBBeacon</a> objects to determine the range of each beacon and its identifying information.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The region object containing the parameters that were used to locate the beacons.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that one or more beacons are in range.</p>
+
+<p>The beacon manager calls this method when a new set of beacons becomes available in the specified region or when a beacon goes out of range. The beacon manager also calls this method when the range of a beacon changes; for example, when a beacon gets closer.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/rangingBeaconsDidFailForRegion:withError:" title="rangingBeaconsDidFailForRegion:withError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rangingBeaconsDidFailForRegion:withError:">&ndash;&nbsp;rangingBeaconsDidFailForRegion:withError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when an error has occurred ranging beacons in a region. Error types are defined in &ldquo;CLError.h&rdquo;.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)rangingBeaconsDidFailForRegion:(CBRegion *_Nonnull)<em>region</em> withError:(NSError *_Nullable)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The region object that encountered the error.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An error object containing the error code that indicates why ranging failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that an error occurred while gathering ranging information for a set of beacons.</p>
+
+<p>Errors occur most often when registering a beacon region failed. If the region object itself is invalid or if it contains invalid data, the beacon manager calls this method to report the problem.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didDetermineState:forRegion:" title="didDetermineState:forRegion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didDetermineState:forRegion:">&ndash;&nbsp;didDetermineState:forRegion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when there&rsquo;s a state transition for a monitored region or in response to a request for state via a call to <code>requestStateForRegion:</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didDetermineState:(CBRegionState)<em>state</em> forRegion:(CBRegion *_Nonnull)<em>region</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>state</code></th>
+						<td><p>The state of the specified region. For a list of possible values, see the <a href="../Constants/CBRegionState.html"><code>CBRegionState</code></a> type.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The region whose state was determined.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate about the state of the specified region.</p>
+
+<p>The beacon manager calls this method whenever there is a boundary transition for a region. It calls this method in addition to calling the <a href="#//api/name/didEnterRegion:"><code>didEnterRegion:</code></a> and <a href="#//api/name/didExitRegion:"><code>didExitRegion:</code></a> methods. The beacon manager also calls this method in response to a call to its requestStateForRegion: method, which runs asynchronously.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didEnterRegion:" title="didEnterRegion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didEnterRegion:">&ndash;&nbsp;didEnterRegion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when the user enters a monitored region. This callback will be invoked for every allocated <a href="../Classes/CBBeaconManager.html"><code>CBBeaconManager</code></a> instance with a non-nil delegate that implements this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didEnterRegion:(CBRegion *_Nonnull)<em>region</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>An object containing information about the region that was entered.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that the user entered the specified region.</p>
+
+<p>Because regions are a shared application resource, every active beacon manager object delivers this message to its associated delegate. It does not matter which beacon manager actually registered the specified region. And if multiple beacon managers share a delegate object, that delegate receives the message multiple times.</p>
+
+<p>The region object provided may not be the same one that was registered. As a result, you should never perform pointer-level comparisons to determine equality. Instead, use the region’s identifier string to determine if your delegate should respond.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didExitRegion:" title="didExitRegion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didExitRegion:">&ndash;&nbsp;didExitRegion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when the user exits a monitored region. This callback will be invoked for every allocated <a href="../Classes/CBBeaconManager.html"><code>CBBeaconManager</code></a> instance with a non-nil delegate that implements this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didExitRegion:(CBRegion *_Nonnull)<em>region</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The exited region.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that the user left the specified region.</p>
+
+<p>Because regions are a shared application resource, every active beacon manager object delivers this message to its associated delegate. It does not matter which beacon manager actually registered the specified region. And if multiple beacon managers share a delegate object, that delegate receives the message multiple times.</p>
+
+<p>The region object provided may not be the same one that was registered. As a result, you should never perform pointer-level comparisons to determine equality. Instead, use the region’s identifier string to determine if your delegate should respond.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didStartMonitoringForRegion:" title="didStartMonitoringForRegion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didStartMonitoringForRegion:">&ndash;&nbsp;didStartMonitoringForRegion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when a monitoring for a region started successfully.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didStartMonitoringForRegion:(CBRegion *_Nonnull)<em>region</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The region that is being monitored.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that a new region is being monitored.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/monitoringDidFailForRegion:withError:" title="monitoringDidFailForRegion:withError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/monitoringDidFailForRegion:withError:">&ndash;&nbsp;monitoringDidFailForRegion:withError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when a region monitoring error has occurred. Error types are defined in &ldquo;CLError.h&rdquo;.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)monitoringDidFailForRegion:(CBRegion *_Nonnull)<em>region</em> withError:(NSError *_Nullable)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>region</code></th>
+						<td><p>The region for which the error occurred.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An error object containing the error code that indicates why region monitoring failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Tells the delegate that a region monitoring error occurred.</p>
+
+<p>If an error occurs while trying to monitor a given region, the beacon manager sends this message to its delegate. Region monitoring might fail because the region itself cannot be monitored or because there was a more general failure in configuring the region monitoring service.</p>
+
+<p>Although implementation of this method is optional, it is recommended that you implement it if you use region monitoring in your application.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">CBBeaconManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Eyro Labs. All rights reserved. Updated: 2016-12-06</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
