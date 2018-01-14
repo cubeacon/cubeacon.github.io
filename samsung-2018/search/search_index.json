@@ -1,0 +1,224 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Cubeacon\n\n\nScan and find your beacons.\n\n\nOverview\n\n\nCubeacon SDK for Android is a library to allow interaction with any beacons. The SDK system requirements are Android 4.3 or above and Bluetooth Low Energy.\n\n\nCubeacon SDK allows for:\n\n\n\n\nBeacon ranging (scans beacons and optionally filters them by their properties).\n\n\nBeacon monitoring (monitors regions for those devices that have entered/exited a region).\n\n\n\n\nInstallation\n\n\n\n\nDownload the latest \ncubeacon-x.y.z.aar\n from the \ndownload page\n.\n\n\nThen copy it to your \nlibs\n directory.\n\n\n\n\nOn your \nbuild.gradle\n within \napp\n module, add this lines below before \ndependencies\n tag\n\n\nrepositories{\n    flatDir {\n        dirs 'libs'\n    }\n}\n\n\nThen add \ncompile 'com.eyro.cubeacon:cubeacon:x.y.z@aar'\n into your \ndependecies\n.\n\n\n\n\n\n\nCreate custom application class and add the following code to the \nonCreate()\n method to initialize the Cubeacon SDK.\n\n\nCubeacon.initialize(this);\n\n\nDon't forget to add your custom application class into \nAndroidManifest.xml\n\n\n(Optional) You can add some custom setup :\n\n\n\n\nEnable Cubeacon SDK debug logging when in development mode by calling \nLogger.setLogLevel(LogLevel)\n before initialize SDK.\n\n\nYou can choose \nLogLevel\n from : \nNONE\n, \nASSERT\n, \nDEBUG\n, \nERROR\n, \nINFO\n, \nWARN\n, or \nVERBOSE\n.\n\n\n\n\n\n\n\n\nChangelog\n\n\n\n\n2.1.0 (January 15, 2018)\n\n\nReleased for corporate use\n\n\n\n\n\n\n2.0.0 (November 19, 2016)\n\n\nRemove all cloud features (moving \nCubeacon\n BaaS to \nMesosfer\n BaaS).\n\n\nRebuild sdk with scanning beacons only.\n\n\nFix some bugs and improve stability.\n\n\n\n\n\n\n1.5.0 (January 23, 2016)\n\n\nNew enhancement scanning method for a faster detecting beacons.\n\n\nNew AAR package, comply with Android Studio.\n\n\nNew feature, added scan period mode for better battery life.\n\n\nNew System Requirements Checker, comply with Android M or higher.\n\n\nComply with AppCompat library v7 for activity bundled with SDK.\n\n\nAdd possibility to customize alert and notification.\n\n\nFix some bugs and improve stability.\n\n\n\n\n\n\n1.3.1 (April 18, 2015)\n\n\nFix optional parameter when downloading data from cloud\n\n\nAdd control to URL WebView Activity\n\n\n\n\n\n\n1.3.0 (February 28, 2015)\n\n\nNew storyline with custom campaign like showing Image, Video, Url web page and HTML formatted content.\n\n\nNew analytic data based new storyline\n\n\nComply with current Cubeacon SaaS v1.3.0\n\n\nSupport Android 5.0 Lollipop\n\n\n\n\n\n\n1.2.0 (January 17, 2015)\n\n\nAdd meta user for analytics\n\n\nAdd storyline for beacon scenario\n\n\nComply with current Cubeacon SaaS v1.2.0\n\n\n\n\n\n\n1.0.0 (November 10, 2014)\n\n\nAdd new base CBActivity class\n\n\nImprove stability\n\n\nComply with current Cubeacon SaaS v1.0.0\n\n\nCombine all required library into single file\n\n\nFix automatic background and foreground scanning\n\n\n\n\n\n\n0.5.0 (August 25, 2014)\n\n\nInitial release", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#cubeacon", 
+            "text": "Scan and find your beacons.", 
+            "title": "Cubeacon"
+        }, 
+        {
+            "location": "/#overview", 
+            "text": "Cubeacon SDK for Android is a library to allow interaction with any beacons. The SDK system requirements are Android 4.3 or above and Bluetooth Low Energy.  Cubeacon SDK allows for:   Beacon ranging (scans beacons and optionally filters them by their properties).  Beacon monitoring (monitors regions for those devices that have entered/exited a region).", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "Download the latest  cubeacon-x.y.z.aar  from the  download page .  Then copy it to your  libs  directory.   On your  build.gradle  within  app  module, add this lines below before  dependencies  tag  repositories{\n    flatDir {\n        dirs 'libs'\n    }\n}  Then add  compile 'com.eyro.cubeacon:cubeacon:x.y.z@aar'  into your  dependecies .    Create custom application class and add the following code to the  onCreate()  method to initialize the Cubeacon SDK.  Cubeacon.initialize(this);  Don't forget to add your custom application class into  AndroidManifest.xml  (Optional) You can add some custom setup :   Enable Cubeacon SDK debug logging when in development mode by calling  Logger.setLogLevel(LogLevel)  before initialize SDK.  You can choose  LogLevel  from :  NONE ,  ASSERT ,  DEBUG ,  ERROR ,  INFO ,  WARN , or  VERBOSE .", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#changelog", 
+            "text": "2.1.0 (January 15, 2018)  Released for corporate use    2.0.0 (November 19, 2016)  Remove all cloud features (moving  Cubeacon  BaaS to  Mesosfer  BaaS).  Rebuild sdk with scanning beacons only.  Fix some bugs and improve stability.    1.5.0 (January 23, 2016)  New enhancement scanning method for a faster detecting beacons.  New AAR package, comply with Android Studio.  New feature, added scan period mode for better battery life.  New System Requirements Checker, comply with Android M or higher.  Comply with AppCompat library v7 for activity bundled with SDK.  Add possibility to customize alert and notification.  Fix some bugs and improve stability.    1.3.1 (April 18, 2015)  Fix optional parameter when downloading data from cloud  Add control to URL WebView Activity    1.3.0 (February 28, 2015)  New storyline with custom campaign like showing Image, Video, Url web page and HTML formatted content.  New analytic data based new storyline  Comply with current Cubeacon SaaS v1.3.0  Support Android 5.0 Lollipop    1.2.0 (January 17, 2015)  Add meta user for analytics  Add storyline for beacon scenario  Comply with current Cubeacon SaaS v1.2.0    1.0.0 (November 10, 2014)  Add new base CBActivity class  Improve stability  Comply with current Cubeacon SaaS v1.0.0  Combine all required library into single file  Fix automatic background and foreground scanning    0.5.0 (August 25, 2014)  Initial release", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/download/", 
+            "text": "Download\n\n\n\n\nLatest Cubeacon SDK v2.1.0\n\n\nCubeacon Tools - Play Store\n\n\nCubeacon Tools - PDF User Guide", 
+            "title": "Download"
+        }, 
+        {
+            "location": "/download/#download", 
+            "text": "Latest Cubeacon SDK v2.1.0  Cubeacon Tools - Play Store  Cubeacon Tools - PDF User Guide", 
+            "title": "Download"
+        }, 
+        {
+            "location": "/beacon-region/", 
+            "text": "Beacon Region\n\n\nBeacon region is like a filter or a regular expression. Each beacon is identified by three values: \n\n\n\n\nProximity UUID\n, most commonly represented as a string, e.g. \nCB10023F-A318-3394-4199-A8730C7C1AEC\n.\n\n\nMajor\n, an unsigned short integer, i.e., an integer ranging from \n1\n to \n65535\n, (\n0\n is a reserved value).\n\n\nMinor\n, also an unsigned short integer, like the major number.\n\n\n\n\nThere are four options when it comes to ranging or monitoring beacon by a region:\n\n\n1. Proximity UUID + Major + Minor\n\n\nThe most specific option that only scan beacon with specific proximity UUID, major and minor.\n\n\nCBRegion region = new CBRegion(\nregionId\n, \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, 1, 284);\n\n\n\n\nBy using this region, scanner only return beacon(s) with proximity UUID \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, major number \n1\n and minor number \n284\n\n\n2. Proximity UUID + Major\n\n\nOption that only scan beacon with specific proximity UUID and major number.\n\n\nCBRegion region = new CBRegion(\nregionId\n, \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, 1);\n\n\n\n\nBy using this region, scanner only return beacon(s) with proximity UUID \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, major number \n1\n and minor number within range \n0\n to \n65535\n.\n\n\n3. Proximity UUID\n\n\nOption that only scan beacon with specific proximity UUID.\n\n\nCBRegion region = new CBRegion(\nregionId\n, \nCB10023F-A318-3394-4199-A8730C7C1AEC\n);\n\n\n\n\nBy using this region, scanner only return beacon(s) with proximity UUID \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, major and minor number within range \n0\n to \n65535\n for each of it.\n\n\n4. No Parameters\n\n\nOption that scan all nearby beacon without specific proximity UUID, major or minor.\n\n\nCBRegion region = new CBRegion(\nregionId\n);\n\n\n\n\nBy using this region, scanner will return all beacons without specific proximity UUID, major and minor number within range \n0\n to \n65535\n for each of it.", 
+            "title": "Beacon Region"
+        }, 
+        {
+            "location": "/beacon-region/#beacon-region", 
+            "text": "Beacon region is like a filter or a regular expression. Each beacon is identified by three values:    Proximity UUID , most commonly represented as a string, e.g.  CB10023F-A318-3394-4199-A8730C7C1AEC .  Major , an unsigned short integer, i.e., an integer ranging from  1  to  65535 , ( 0  is a reserved value).  Minor , also an unsigned short integer, like the major number.   There are four options when it comes to ranging or monitoring beacon by a region:", 
+            "title": "Beacon Region"
+        }, 
+        {
+            "location": "/beacon-region/#1-proximity-uuid-major-minor", 
+            "text": "The most specific option that only scan beacon with specific proximity UUID, major and minor.  CBRegion region = new CBRegion( regionId ,  CB10023F-A318-3394-4199-A8730C7C1AEC , 1, 284);  By using this region, scanner only return beacon(s) with proximity UUID  CB10023F-A318-3394-4199-A8730C7C1AEC , major number  1  and minor number  284", 
+            "title": "1. Proximity UUID + Major + Minor"
+        }, 
+        {
+            "location": "/beacon-region/#2-proximity-uuid-major", 
+            "text": "Option that only scan beacon with specific proximity UUID and major number.  CBRegion region = new CBRegion( regionId ,  CB10023F-A318-3394-4199-A8730C7C1AEC , 1);  By using this region, scanner only return beacon(s) with proximity UUID  CB10023F-A318-3394-4199-A8730C7C1AEC , major number  1  and minor number within range  0  to  65535 .", 
+            "title": "2. Proximity UUID + Major"
+        }, 
+        {
+            "location": "/beacon-region/#3-proximity-uuid", 
+            "text": "Option that only scan beacon with specific proximity UUID.  CBRegion region = new CBRegion( regionId ,  CB10023F-A318-3394-4199-A8730C7C1AEC );  By using this region, scanner only return beacon(s) with proximity UUID  CB10023F-A318-3394-4199-A8730C7C1AEC , major and minor number within range  0  to  65535  for each of it.", 
+            "title": "3. Proximity UUID"
+        }, 
+        {
+            "location": "/beacon-region/#4-no-parameters", 
+            "text": "Option that scan all nearby beacon without specific proximity UUID, major or minor.  CBRegion region = new CBRegion( regionId );  By using this region, scanner will return all beacons without specific proximity UUID, major and minor number within range  0  to  65535  for each of it.", 
+            "title": "4. No Parameters"
+        }, 
+        {
+            "location": "/ranging-for-beacons/", 
+            "text": "Ranging for Beacons\n\n\nStarting ranging is very easy, we need to provide a beacon region that will define which beacons to scan for. Let\u2019s say we\u2019re interested in all beacons. For that, we can define a beacon region\u2014by proximity UUID only. Let\u2019s just use the default Cubeacon UUID: \nCB10023F-A318-3394-4199-A8730C7C1AEC\n.\n\n\nImplementation\n\n\nLet\u2019s go to the \nRangingActivity\n implementation file and set up a second beacon manager. Also, this time, we\u2019ll create a dedicated property to hold the beacon region, since we\u2019ll be using it in two places: to start, and to stop ranging. This goes inside the \nRangingActivity\n class:\n\n\nprivate Cubeacon cubeacon;\nprivate CBRegion region;\n\n@Override\nprotected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.activity_main);\n\n    cubeacon = Cubeacon.getInstance();\n    // create a new region for ranging beacons\n    region = new CBRegion(\ncom.eyro.cubeacon.ranging_region\n,\n            UUID.fromString(\nCB10023F-A318-3394-4199-A8730C7C1AEC\n));\n}\n\n\n\n\nSetting Listener\n\n\nNow, the code to start and stop ranging as the activity appears and disappears on screen. You need to implement \nCBServiceListener\n before connecting to service. This too goes inside the \nRangingActivity\n class:\n\n\n@Override\nprotected void onResume() {\n    super.onResume();\n\n    // check all requirement like is BLE available, is bluetooth on/off,\n    // location service for Android API 23 or later\n    if (SystemRequirementManager.checkAllRequirementUsingDefaultDialog(this)) {\n        // connecting to Cubeacon service when all requirements completed\n        cubeacon.connect(this);\n    }\n}\n\n@Override\npublic void onBeaconServiceConnect() {\n    try {\n        // start ranging beacons using region\n        cubeacon.startRangingBeaconsInRegion(region);\n    } catch (RemoteException e) {\n        Log.e(TAG, \nError while start ranging beacon, \n + e);\n    }\n}\n\n@Override\nprotected void onDestroy() {\n    super.onDestroy();\n\n    // disconnect from Cubeacon service when this activity destroyed\n    cubeacon.disconnect(this);\n}\n\n\n\n\nAdding Listener\n\n\nHaving the list pre-sorted by the Cubeacon SDK, and with all the prep work we\u2019ve performed, the ranging listener turns out to be quite simple:\n\n\nCubeacon cubeacon = Cubeacon.getInstance();\ncubeacon.addRangingListener(new CBRangingListener() {\n    @Override\n    public void didRangeBeaconsInRegion(List\nCBBeacon\n list, CBRegion region) {\n        Log.d(TAG, \nFound beacon: \n + list.size());\n    }\n});\n\n\n\n\nImportant Note\n\n\nBecause we execute ranging listener from a background service. So if you want to update your view from ranging listener, you can wrap your code inside \nrunOnUiThread\n like below :\n\n\nrunOnUiThread(new Runnable() {\n    @Override\n    public void run() {\n        // run update view here...\n    }\n});", 
+            "title": "Ranging for Beacons"
+        }, 
+        {
+            "location": "/ranging-for-beacons/#ranging-for-beacons", 
+            "text": "Starting ranging is very easy, we need to provide a beacon region that will define which beacons to scan for. Let\u2019s say we\u2019re interested in all beacons. For that, we can define a beacon region\u2014by proximity UUID only. Let\u2019s just use the default Cubeacon UUID:  CB10023F-A318-3394-4199-A8730C7C1AEC .", 
+            "title": "Ranging for Beacons"
+        }, 
+        {
+            "location": "/ranging-for-beacons/#implementation", 
+            "text": "Let\u2019s go to the  RangingActivity  implementation file and set up a second beacon manager. Also, this time, we\u2019ll create a dedicated property to hold the beacon region, since we\u2019ll be using it in two places: to start, and to stop ranging. This goes inside the  RangingActivity  class:  private Cubeacon cubeacon;\nprivate CBRegion region;\n\n@Override\nprotected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.activity_main);\n\n    cubeacon = Cubeacon.getInstance();\n    // create a new region for ranging beacons\n    region = new CBRegion( com.eyro.cubeacon.ranging_region ,\n            UUID.fromString( CB10023F-A318-3394-4199-A8730C7C1AEC ));\n}", 
+            "title": "Implementation"
+        }, 
+        {
+            "location": "/ranging-for-beacons/#setting-listener", 
+            "text": "Now, the code to start and stop ranging as the activity appears and disappears on screen. You need to implement  CBServiceListener  before connecting to service. This too goes inside the  RangingActivity  class:  @Override\nprotected void onResume() {\n    super.onResume();\n\n    // check all requirement like is BLE available, is bluetooth on/off,\n    // location service for Android API 23 or later\n    if (SystemRequirementManager.checkAllRequirementUsingDefaultDialog(this)) {\n        // connecting to Cubeacon service when all requirements completed\n        cubeacon.connect(this);\n    }\n}\n\n@Override\npublic void onBeaconServiceConnect() {\n    try {\n        // start ranging beacons using region\n        cubeacon.startRangingBeaconsInRegion(region);\n    } catch (RemoteException e) {\n        Log.e(TAG,  Error while start ranging beacon,   + e);\n    }\n}\n\n@Override\nprotected void onDestroy() {\n    super.onDestroy();\n\n    // disconnect from Cubeacon service when this activity destroyed\n    cubeacon.disconnect(this);\n}", 
+            "title": "Setting Listener"
+        }, 
+        {
+            "location": "/ranging-for-beacons/#adding-listener", 
+            "text": "Having the list pre-sorted by the Cubeacon SDK, and with all the prep work we\u2019ve performed, the ranging listener turns out to be quite simple:  Cubeacon cubeacon = Cubeacon.getInstance();\ncubeacon.addRangingListener(new CBRangingListener() {\n    @Override\n    public void didRangeBeaconsInRegion(List CBBeacon  list, CBRegion region) {\n        Log.d(TAG,  Found beacon:   + list.size());\n    }\n});", 
+            "title": "Adding Listener"
+        }, 
+        {
+            "location": "/ranging-for-beacons/#important-note", 
+            "text": "Because we execute ranging listener from a background service. So if you want to update your view from ranging listener, you can wrap your code inside  runOnUiThread  like below :  runOnUiThread(new Runnable() {\n    @Override\n    public void run() {\n        // run update view here...\n    }\n});", 
+            "title": "Important Note"
+        }, 
+        {
+            "location": "/region-monitoring/", 
+            "text": "Region Monitoring\n\n\nWe need to provide a beacon region that will define which beacons to monitoring for. For that, we can define a beacon region\u2014by proximity UUID-major-minor. Let\u2019s just use the default Cubeacon UUID: \nCB10023F-A318-3394-4199-A8730C7C1AEC\n, major: \n1\n and minor \n284\n.\n\n\nImplementation\n\n\nLet\u2019s go to the \nMonitoringActivity\n implementation file and set up a second beacon manager. Also, this time, we\u2019ll create a dedicated property to hold the beacon region, since we\u2019ll be using it in two places: to start, and to stop monitoring. This goes inside the \nMonitoringActivity\n class:\n\n\nprivate Cubeacon cubeacon;\nprivate CBRegion region;\n\n@Override\nprotected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.activity_main);\n\n    cubeacon = Cubeacon.getInstance();\n    // create a new region for monitoring beacon\n    region = new CBRegion(\ncom.eyro.cubeacon.monitoring_region\n,\n            UUID.fromString(\nCB10023F-A318-3394-4199-A8730C7C1AEC\n), 1, 284);\n}\n\n\n\n\nImplement Listener\n\n\nNow, the code to start and stop monitoring as the activity appears and disappears on screen. You need to implement \nCBServiceListener\n before connecting to service. This too goes inside the \nMonitoringActivity\n class:\n\n\npublic class MonitoringActivity extends Activity implements CBServiceListener {\n\n@Override\nprotected void onResume() {\n    super.onResume();\n\n    // check all requirement like is BLE available, is bluetooth on/off,\n    // location service for Android API 23 or later\n    if (SystemRequirementManager.checkAllRequirementUsingDefaultDialog(this)) {\n        // connecting to Cubeacon service when all requirements completed\n        cubeacon.connect(this);\n    }\n}\n\n@Override\npublic void onBeaconServiceConnect() {\n    try {\n        // start monitoring beacon using region\n        cubeacon.startMonitoringForRegion(region);\n    } catch (RemoteException e) {\n        Log.e(TAG, \nError while start monitoring beacon, \n + e);\n    }\n}\n\n@Override\nprotected void onDestroy() {\n    super.onDestroy();\n\n    // disconnect from Cubeacon service when this activity destroyed\n    cubeacon.disconnect(this);\n}\n\n\n\n\nAdding Listener\n\n\nHaving the list pre-sorted by the Cubeacon SDK, and with all the prep work we\u2019ve performed, the monitoring listener turns out to be quite simple:\n\n\nCubeacon cubeacon = Cubeacon.getInstance();\ncubeacon.addMonitoringListener(new CBMonitoringListener() {\n    @Override\n    public void didEnterRegion(CBRegion region) {\n        Log.d(TAG, \nEntering beacon region\n);\n    }\n\n    @Override\n    public void didExitRegion(CBRegion region) {\n        Log.d(TAG, \nExiting beacon region\n);\n    }\n\n    @Override\n    public void didDetermineStateForRegion(MonitoringState state, CBRegion region) {\n        switch (state) {\n            case INSIDE:\n                Log.d(TAG, \nChange state to entering beacon region\n);\n                break;\n            case OUTSIDE:\n                Log.d(TAG, \nChange state to exiting beacon region\n);\n                break;\n        }\n    }\n});", 
+            "title": "Region Monitoring"
+        }, 
+        {
+            "location": "/region-monitoring/#region-monitoring", 
+            "text": "We need to provide a beacon region that will define which beacons to monitoring for. For that, we can define a beacon region\u2014by proximity UUID-major-minor. Let\u2019s just use the default Cubeacon UUID:  CB10023F-A318-3394-4199-A8730C7C1AEC , major:  1  and minor  284 .", 
+            "title": "Region Monitoring"
+        }, 
+        {
+            "location": "/region-monitoring/#implementation", 
+            "text": "Let\u2019s go to the  MonitoringActivity  implementation file and set up a second beacon manager. Also, this time, we\u2019ll create a dedicated property to hold the beacon region, since we\u2019ll be using it in two places: to start, and to stop monitoring. This goes inside the  MonitoringActivity  class:  private Cubeacon cubeacon;\nprivate CBRegion region;\n\n@Override\nprotected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.activity_main);\n\n    cubeacon = Cubeacon.getInstance();\n    // create a new region for monitoring beacon\n    region = new CBRegion( com.eyro.cubeacon.monitoring_region ,\n            UUID.fromString( CB10023F-A318-3394-4199-A8730C7C1AEC ), 1, 284);\n}", 
+            "title": "Implementation"
+        }, 
+        {
+            "location": "/region-monitoring/#implement-listener", 
+            "text": "Now, the code to start and stop monitoring as the activity appears and disappears on screen. You need to implement  CBServiceListener  before connecting to service. This too goes inside the  MonitoringActivity  class:  public class MonitoringActivity extends Activity implements CBServiceListener {\n\n@Override\nprotected void onResume() {\n    super.onResume();\n\n    // check all requirement like is BLE available, is bluetooth on/off,\n    // location service for Android API 23 or later\n    if (SystemRequirementManager.checkAllRequirementUsingDefaultDialog(this)) {\n        // connecting to Cubeacon service when all requirements completed\n        cubeacon.connect(this);\n    }\n}\n\n@Override\npublic void onBeaconServiceConnect() {\n    try {\n        // start monitoring beacon using region\n        cubeacon.startMonitoringForRegion(region);\n    } catch (RemoteException e) {\n        Log.e(TAG,  Error while start monitoring beacon,   + e);\n    }\n}\n\n@Override\nprotected void onDestroy() {\n    super.onDestroy();\n\n    // disconnect from Cubeacon service when this activity destroyed\n    cubeacon.disconnect(this);\n}", 
+            "title": "Implement Listener"
+        }, 
+        {
+            "location": "/region-monitoring/#adding-listener", 
+            "text": "Having the list pre-sorted by the Cubeacon SDK, and with all the prep work we\u2019ve performed, the monitoring listener turns out to be quite simple:  Cubeacon cubeacon = Cubeacon.getInstance();\ncubeacon.addMonitoringListener(new CBMonitoringListener() {\n    @Override\n    public void didEnterRegion(CBRegion region) {\n        Log.d(TAG,  Entering beacon region );\n    }\n\n    @Override\n    public void didExitRegion(CBRegion region) {\n        Log.d(TAG,  Exiting beacon region );\n    }\n\n    @Override\n    public void didDetermineStateForRegion(MonitoringState state, CBRegion region) {\n        switch (state) {\n            case INSIDE:\n                Log.d(TAG,  Change state to entering beacon region );\n                break;\n            case OUTSIDE:\n                Log.d(TAG,  Change state to exiting beacon region );\n                break;\n        }\n    }\n});", 
+            "title": "Adding Listener"
+        }, 
+        {
+            "location": "/bootstrap-region-monitoring/", 
+            "text": "Bootstrap Region Monitoring\n\n\nWhen we expect the monitoring in our app to work at all times, no matter which activity is currently in use. \n\n\nImplementation\n\n\nTo achieve that, we will instantiate in a subclass of the \nApplication\n class. Start by creating a new \nMyApplication\n Java Class that extend to \nandroid.app.Application\n:\n\n\npublic class MyApplication extends Application implements CBBootstrapListener {\n    private static final String TAG = MyApplication.class.getSimpleName();\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n\n        // initializing Cubeacon SDK\n        Cubeacon.initialize(this);\n\n        // create region for scanning\n        CBRegion region = new CBRegion(\ncom.eyro.cubeacon.bootstrap_region\n,\n                        UUID.fromString(\nCB10023F-A318-3394-4199-A8730C7C1AEC\n), 1, 284);\n        // setup region scanning when OS boot completed\n        CBBootstrapRegion.setup(this, region);\n    }\n\n    @Override\n    public void didEnterRegion(CBRegion region) {\n        Log.d(TAG, \nEntering region: \n + region);\n    }\n\n    @Override\n    public void didExitRegion(CBRegion region) {\n        Log.d(TAG, \nExiting region: \n + region);\n    }\n\n    @Override\n    public void didDetermineStateForRegion(MonitoringState state, CBRegion region) {\n        Log.d(TAG, \nRegion: \n + region + \n change state to: \n + state.name());\n    }\n}\n\n\n\n\nManifest declaration\n\n\nDon't forget to implement \nCBBootstrapListener\n to your application class. Then declare it in the \nAndroidManifest.xml\n file:\n\n\napplication\n    \n!-- add this: --\n\n    android:name=\n.MyApplication\n\n    \n!-- etc. ... --\n\n\n\n\n\nNote\n\n\nThat \nCBBootstrapRegion\n class registers an internal \nCBMonitoringListener\n with the \nCubeacon\n.  If you use the \nCBBootstrapRegion\n, your application must not manually register a second \nCBMonitoringListener\n, otherwise it will unregister the one configured by the \nCBBootstrapRegion\n, effectively disabling it.", 
+            "title": "Bootstrap Region Monitoring"
+        }, 
+        {
+            "location": "/bootstrap-region-monitoring/#bootstrap-region-monitoring", 
+            "text": "When we expect the monitoring in our app to work at all times, no matter which activity is currently in use.", 
+            "title": "Bootstrap Region Monitoring"
+        }, 
+        {
+            "location": "/bootstrap-region-monitoring/#implementation", 
+            "text": "To achieve that, we will instantiate in a subclass of the  Application  class. Start by creating a new  MyApplication  Java Class that extend to  android.app.Application :  public class MyApplication extends Application implements CBBootstrapListener {\n    private static final String TAG = MyApplication.class.getSimpleName();\n\n    @Override\n    public void onCreate() {\n        super.onCreate();\n\n        // initializing Cubeacon SDK\n        Cubeacon.initialize(this);\n\n        // create region for scanning\n        CBRegion region = new CBRegion( com.eyro.cubeacon.bootstrap_region ,\n                        UUID.fromString( CB10023F-A318-3394-4199-A8730C7C1AEC ), 1, 284);\n        // setup region scanning when OS boot completed\n        CBBootstrapRegion.setup(this, region);\n    }\n\n    @Override\n    public void didEnterRegion(CBRegion region) {\n        Log.d(TAG,  Entering region:   + region);\n    }\n\n    @Override\n    public void didExitRegion(CBRegion region) {\n        Log.d(TAG,  Exiting region:   + region);\n    }\n\n    @Override\n    public void didDetermineStateForRegion(MonitoringState state, CBRegion region) {\n        Log.d(TAG,  Region:   + region +   change state to:   + state.name());\n    }\n}", 
+            "title": "Implementation"
+        }, 
+        {
+            "location": "/bootstrap-region-monitoring/#manifest-declaration", 
+            "text": "Don't forget to implement  CBBootstrapListener  to your application class. Then declare it in the  AndroidManifest.xml  file:  application\n     !-- add this: -- \n    android:name= .MyApplication \n     !-- etc. ... --", 
+            "title": "Manifest declaration"
+        }, 
+        {
+            "location": "/bootstrap-region-monitoring/#note", 
+            "text": "That  CBBootstrapRegion  class registers an internal  CBMonitoringListener  with the  Cubeacon .  If you use the  CBBootstrapRegion , your application must not manually register a second  CBMonitoringListener , otherwise it will unregister the one configured by the  CBBootstrapRegion , effectively disabling it.", 
+            "title": "Note"
+        }, 
+        {
+            "location": "/show-notification/", 
+            "text": "Show Notification\n\n\nOne of the most common use cases when we are monitoring for beacons in background mode is to trigger notification to a phone. This notification can be a sales or marketing message or an alert that a nearby service is available. Tapping on the notification launches your app and allows the user to see more information about the subject of the notification.\n\n\nCreate Helper Method\n\n\nLet\u2019s add a notification to show up whenever user enters the range of our monitored beacon. Here is a helper method to add to your custom application class:\n\n\npublic void showNotification(String title, String message) {\n    Intent notifyIntent = new Intent(this, MonitoringActivity.class);\n    notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);\n    PendingIntent pendingIntent = PendingIntent.getActivities(this, 1234,\n            new Intent[] { notifyIntent }, PendingIntent.FLAG_UPDATE_CURRENT);\n    Notification notification = new Notification.Builder(this)\n            .setSmallIcon(android.R.drawable.ic_dialog_info)\n            .setContentTitle(title)\n            .setContentText(message)\n            .setAutoCancel(true)\n            .setContentIntent(pendingIntent)\n            .build();\n    notification.defaults |= Notification.DEFAULT_SOUND;\n    NotificationManager notificationManager =\n            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);\n    notificationManager.notify(5678, notification);\n}\n\n\n\n\nImplementation\n\n\nFor example, we will show a check in timestamp when a user entering and exiting a beacon region:\n\n\n@Override\npublic void didEnterRegion(CBRegion region) {\n    showNotification(\n                \nCheck In Successfully\n,\n                \nYou are already checked in at 7.35 o'clock, \n\n                        + \nsuch a great morning. \n\n                        + \nWe hope today will be a great day for you!\n);\n}\n\n@Override\npublic void didExitRegion(CBRegion region) {\n    showNotification(\n                \nChecked Out\n,\n                \nYour checked out time is 17.00. \n\n                        + \nSee you tomorrow!\n);\n}\n\n\n\n\nNote\n\n\nWe use a static string here for notification title and message. For more dynamic message, you can call some REST API to get notification parameters based on a beacon region. We recommended you to using \nMesosfer\n Backend as a Service to handle your beacon's storyline.", 
+            "title": "Show Notification"
+        }, 
+        {
+            "location": "/show-notification/#show-notification", 
+            "text": "One of the most common use cases when we are monitoring for beacons in background mode is to trigger notification to a phone. This notification can be a sales or marketing message or an alert that a nearby service is available. Tapping on the notification launches your app and allows the user to see more information about the subject of the notification.", 
+            "title": "Show Notification"
+        }, 
+        {
+            "location": "/show-notification/#create-helper-method", 
+            "text": "Let\u2019s add a notification to show up whenever user enters the range of our monitored beacon. Here is a helper method to add to your custom application class:  public void showNotification(String title, String message) {\n    Intent notifyIntent = new Intent(this, MonitoringActivity.class);\n    notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);\n    PendingIntent pendingIntent = PendingIntent.getActivities(this, 1234,\n            new Intent[] { notifyIntent }, PendingIntent.FLAG_UPDATE_CURRENT);\n    Notification notification = new Notification.Builder(this)\n            .setSmallIcon(android.R.drawable.ic_dialog_info)\n            .setContentTitle(title)\n            .setContentText(message)\n            .setAutoCancel(true)\n            .setContentIntent(pendingIntent)\n            .build();\n    notification.defaults |= Notification.DEFAULT_SOUND;\n    NotificationManager notificationManager =\n            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);\n    notificationManager.notify(5678, notification);\n}", 
+            "title": "Create Helper Method"
+        }, 
+        {
+            "location": "/show-notification/#implementation", 
+            "text": "For example, we will show a check in timestamp when a user entering and exiting a beacon region:  @Override\npublic void didEnterRegion(CBRegion region) {\n    showNotification(\n                 Check In Successfully ,\n                 You are already checked in at 7.35 o'clock,  \n                        +  such a great morning.  \n                        +  We hope today will be a great day for you! );\n}\n\n@Override\npublic void didExitRegion(CBRegion region) {\n    showNotification(\n                 Checked Out ,\n                 Your checked out time is 17.00.  \n                        +  See you tomorrow! );\n}", 
+            "title": "Implementation"
+        }, 
+        {
+            "location": "/show-notification/#note", 
+            "text": "We use a static string here for notification title and message. For more dynamic message, you can call some REST API to get notification parameters based on a beacon region. We recommended you to using  Mesosfer  Backend as a Service to handle your beacon's storyline.", 
+            "title": "Note"
+        }, 
+        {
+            "location": "/i4/", 
+            "text": "Cubeacon i4\n\n\nThis page is intended for The Rounded Cubeacon i4.\n\n\n\n\nTechnical Spesification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransmission Range\n\n\n100m maximum\n\n\n\n\n\n\nCertification\n\n\nCE ROHS FCC Approval\n\n\n\n\n\n\nCompatibility\n\n\niOS 7.0 or higher and Android 4.3 or higher\n\n\n\n\n\n\nColor\n\n\nWhite\n\n\n\n\n\n\nBattery model\n\n\nCoin battery CR2477, 1000mAh\n\n\n\n\n\n\nBattery lifetime\n\n\n1.5 years*\n\n\n\n\n\n\nSize\n\n\n36 x 16 mm\n\n\n\n\n\n\nChipset\n\n\nNordic Nrf51822\n\n\n\n\n\n\nProtocol\n\n\nApple iBeacon\u2122 standard\n\n\n\n\n\n\n\n\n*NOTE\n : Depends on transmission power and broadcast interval of beacon\n\n\nManaging Tools\n\n\n\n\nSwitch On/Off\n\n\nBefore you can switch it on/off, you need to open the back panel of Cubeacon i4.\n\n\nAfter it was open, press the button (\nImage 2\n) besides battery for 2-3 sencods until the bluelight lights up (see \nImage 3\n).\n\n\nCubeacon Tools\n will enable Android phone to:\n\n\n\n\nLocate beacons\n\n\nCalibrate RSSI of beacon\n\n\nConfigure beacon parameters\n\n\n\n\nInstall \nCubeacon Tools\n directly from \nGoogle Play Store\n\n\nConfigure Beacon\n\n\n1. Open Cubeacon Tools app\n\n\nBy using \nCubeacon Tools\n you can configure beacon parameters like:\n\n\n\n\nMajor number\n\n\nMinor number\n\n\nMeasured distance\n\n\nTransmission Power\n\n\nBroadcasting Interval\n\n\nBeacon name\n\n\nConnection mode\n\n\nSecurity password\n\n\n\n\n2. Connect to Beacon\n\n\nSelect tab menu \nConfig\n on app and press \nConnect\n button.\n\n\n\n\nIt will show a list of available beacons that have config mode enabled. Each of beacon has information like:\n\n\n\n\nBeacon name\n\n\nMAC address\n\n\nProximity UUID\n\n\nMajor\n\n\nMinor\n\n\nRSSI signal strength\n\n\nBattery level\n\n\n\n\nSelect the beacon that match to your device to ENTER configuration mode.\n\n\n3. Config Mode - 1\n\n\n\n\nThe first config mode screen show:\n\n\n\n\nBattery level\n, it shows the level of battery using value from \n0\n to \n100\n.\n\n\nProximity UUID\n, (Universally Unique Identifier) is a 128-bit value that uniquely identifies your app's beacons.\n\n\nMajor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same proximity UUID.\n\n\nMinor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same major.\n\n\nMeasured Distance\n, it is a factory-calibrated, read-only constant which indicates what's the expected RSSI at a distance of 1 meter to the beacon. Combined with RSSI, it allows you to estimate the distance between the device and the beacon.\n\n\nTransmission Power\n, it is the power with which the beacon broadcasts its signal. The value ranges from \n-20 dBm\n to \n0 dBm\n.\n\n\nBroadcasting Interval\n, it describes the time between each signal that was broadcasted. The value ranges from \n100ms\n to \n1000ms\n.\n\n\nSerial ID\n, it shows the serial ID of the beacon device.\n\n\nBeacon Name\n, it shows the beacon name.\n\n\n\n\nSelect one of them to change the beacon's parameter value.\n\n\n4. Config Mode - 2\n\n\n\n\nThe second config mode screen show:\n\n\n\n\nConnection Mode\n, normally no need to change this parameter value, unless you want to make beacon parametes immutable.\n\n\nDevice Information\n, this menu will show the device information about the beacon like manufacturer, model number, serial number, firmware, hardware etc.\n\n\nChange Password\n, change the security password to reboot the beacon.\n\n\nSave Configuration\n, after finish modify beacon's parameter, press it and type the security password to reboot to make changes of the parameters.", 
+            "title": "Cubeacon i4"
+        }, 
+        {
+            "location": "/i4/#cubeacon-i4", 
+            "text": "This page is intended for The Rounded Cubeacon i4.", 
+            "title": "Cubeacon i4"
+        }, 
+        {
+            "location": "/i4/#technical-spesification", 
+            "text": "Transmission Range  100m maximum    Certification  CE ROHS FCC Approval    Compatibility  iOS 7.0 or higher and Android 4.3 or higher    Color  White    Battery model  Coin battery CR2477, 1000mAh    Battery lifetime  1.5 years*    Size  36 x 16 mm    Chipset  Nordic Nrf51822    Protocol  Apple iBeacon\u2122 standard     *NOTE  : Depends on transmission power and broadcast interval of beacon", 
+            "title": "Technical Spesification"
+        }, 
+        {
+            "location": "/i4/#managing-tools", 
+            "text": "", 
+            "title": "Managing Tools"
+        }, 
+        {
+            "location": "/i4/#switch-onoff", 
+            "text": "Before you can switch it on/off, you need to open the back panel of Cubeacon i4. \nAfter it was open, press the button ( Image 2 ) besides battery for 2-3 sencods until the bluelight lights up (see  Image 3 ).  Cubeacon Tools  will enable Android phone to:   Locate beacons  Calibrate RSSI of beacon  Configure beacon parameters   Install  Cubeacon Tools  directly from  Google Play Store", 
+            "title": "Switch On/Off"
+        }, 
+        {
+            "location": "/i4/#configure-beacon", 
+            "text": "", 
+            "title": "Configure Beacon"
+        }, 
+        {
+            "location": "/i4/#1-open-cubeacon-tools-app", 
+            "text": "By using  Cubeacon Tools  you can configure beacon parameters like:   Major number  Minor number  Measured distance  Transmission Power  Broadcasting Interval  Beacon name  Connection mode  Security password", 
+            "title": "1. Open Cubeacon Tools app"
+        }, 
+        {
+            "location": "/i4/#2-connect-to-beacon", 
+            "text": "Select tab menu  Config  on app and press  Connect  button.   It will show a list of available beacons that have config mode enabled. Each of beacon has information like:   Beacon name  MAC address  Proximity UUID  Major  Minor  RSSI signal strength  Battery level   Select the beacon that match to your device to ENTER configuration mode.", 
+            "title": "2. Connect to Beacon"
+        }, 
+        {
+            "location": "/i4/#3-config-mode-1", 
+            "text": "The first config mode screen show:   Battery level , it shows the level of battery using value from  0  to  100 .  Proximity UUID , (Universally Unique Identifier) is a 128-bit value that uniquely identifies your app's beacons.  Major , it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same proximity UUID.  Minor , it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same major.  Measured Distance , it is a factory-calibrated, read-only constant which indicates what's the expected RSSI at a distance of 1 meter to the beacon. Combined with RSSI, it allows you to estimate the distance between the device and the beacon.  Transmission Power , it is the power with which the beacon broadcasts its signal. The value ranges from  -20 dBm  to  0 dBm .  Broadcasting Interval , it describes the time between each signal that was broadcasted. The value ranges from  100ms  to  1000ms .  Serial ID , it shows the serial ID of the beacon device.  Beacon Name , it shows the beacon name.   Select one of them to change the beacon's parameter value.", 
+            "title": "3. Config Mode - 1"
+        }, 
+        {
+            "location": "/i4/#4-config-mode-2", 
+            "text": "The second config mode screen show:   Connection Mode , normally no need to change this parameter value, unless you want to make beacon parametes immutable.  Device Information , this menu will show the device information about the beacon like manufacturer, model number, serial number, firmware, hardware etc.  Change Password , change the security password to reboot the beacon.  Save Configuration , after finish modify beacon's parameter, press it and type the security password to reboot to make changes of the parameters.", 
+            "title": "4. Config Mode - 2"
+        }
+    ]
+}
