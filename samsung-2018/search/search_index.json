@@ -171,52 +171,52 @@
             "title": "Note"
         }, 
         {
-            "location": "/i4/", 
-            "text": "Cubeacon i4\n\n\nThis page is intended for The Rounded Cubeacon i4.\n\n\n\n\nTechnical Spesification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransmission Range\n\n\n100m maximum\n\n\n\n\n\n\nCertification\n\n\nCE ROHS FCC Approval\n\n\n\n\n\n\nCompatibility\n\n\niOS 7.0 or higher and Android 4.3 or higher\n\n\n\n\n\n\nColor\n\n\nWhite\n\n\n\n\n\n\nBattery model\n\n\nCoin battery CR2477, 1000mAh\n\n\n\n\n\n\nBattery lifetime\n\n\n1.5 years*\n\n\n\n\n\n\nSize\n\n\n36 x 16 mm\n\n\n\n\n\n\nChipset\n\n\nNordic Nrf51822\n\n\n\n\n\n\nProtocol\n\n\nApple iBeacon\u2122 standard\n\n\n\n\n\n\n\n\n*NOTE\n : Depends on transmission power and broadcast interval of beacon\n\n\nManaging Tools\n\n\n\n\nSwitch On/Off\n\n\nBefore you can switch it on/off, you need to open the back panel of Cubeacon i4.\n\n\nAfter it was open, press the button (\nImage 2\n) besides battery for 2-3 sencods until the bluelight lights up (see \nImage 3\n).\n\n\nCubeacon Tools\n will enable Android phone to:\n\n\n\n\nLocate beacons\n\n\nCalibrate RSSI of beacon\n\n\nConfigure beacon parameters\n\n\n\n\nInstall \nCubeacon Tools\n directly from \nGoogle Play Store\n\n\nConfigure Beacon\n\n\n1. Open Cubeacon Tools app\n\n\nBy using \nCubeacon Tools\n you can configure beacon parameters like:\n\n\n\n\nMajor number\n\n\nMinor number\n\n\nMeasured distance\n\n\nTransmission Power\n\n\nBroadcasting Interval\n\n\nBeacon name\n\n\nConnection mode\n\n\nSecurity password\n\n\n\n\n2. Connect to Beacon\n\n\nSelect tab menu \nConfig\n on app and press \nConnect\n button.\n\n\n\n\nIt will show a list of available beacons that have config mode enabled. Each of beacon has information like:\n\n\n\n\nBeacon name\n\n\nMAC address\n\n\nProximity UUID\n\n\nMajor\n\n\nMinor\n\n\nRSSI signal strength\n\n\nBattery level\n\n\n\n\nSelect the beacon that match to your device to ENTER configuration mode.\n\n\n3. Config Mode - 1\n\n\n\n\nThe first config mode screen show:\n\n\n\n\nBattery level\n, it shows the level of battery using value from \n0\n to \n100\n.\n\n\nProximity UUID\n, (Universally Unique Identifier) is a 128-bit value that uniquely identifies your app's beacons.\n\n\nMajor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same proximity UUID.\n\n\nMinor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same major.\n\n\nMeasured Distance\n, it is a factory-calibrated, read-only constant which indicates what's the expected RSSI at a distance of 1 meter to the beacon. Combined with RSSI, it allows you to estimate the distance between the device and the beacon.\n\n\nTransmission Power\n, it is the power with which the beacon broadcasts its signal. The value ranges from \n-20 dBm\n to \n0 dBm\n.\n\n\nBroadcasting Interval\n, it describes the time between each signal that was broadcasted. The value ranges from \n100ms\n to \n1000ms\n.\n\n\nSerial ID\n, it shows the serial ID of the beacon device.\n\n\nBeacon Name\n, it shows the beacon name.\n\n\n\n\nSelect one of them to change the beacon's parameter value.\n\n\n4. Config Mode - 2\n\n\n\n\nThe second config mode screen show:\n\n\n\n\nConnection Mode\n, normally no need to change this parameter value, unless you want to make beacon parametes immutable.\n\n\nDevice Information\n, this menu will show the device information about the beacon like manufacturer, model number, serial number, firmware, hardware etc.\n\n\nChange Password\n, change the security password to reboot the beacon.\n\n\nSave Configuration\n, after finish modify beacon's parameter, press it and type the security password to reboot to make changes of the parameters.", 
-            "title": "Cubeacon i4"
+            "location": "/devkit-v2/", 
+            "text": "Cubeacon DevKit v2\n\n\nThis page is intended for The Rounded Cubeacon DevKit v2.\n\n\n\n\nTechnical Spesification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransmission Range\n\n\n100m maximum\n\n\n\n\n\n\nCertification\n\n\nCE ROHS FCC Approval\n\n\n\n\n\n\nCompatibility\n\n\niOS 7.0 or higher and Android 4.3 or higher\n\n\n\n\n\n\nColor\n\n\nWhite\n\n\n\n\n\n\nBattery model\n\n\nCoin battery CR2477, 1000mAh\n\n\n\n\n\n\nBattery lifetime\n\n\n1.5 years*\n\n\n\n\n\n\nSize\n\n\n36 x 16 mm\n\n\n\n\n\n\nChipset\n\n\nNordic Nrf51822\n\n\n\n\n\n\nProtocol\n\n\nApple iBeacon\u2122 standard\n\n\n\n\n\n\n\n\n*NOTE\n : Depends on transmission power and broadcast interval of beacon\n\n\nManaging Tools\n\n\n\n\nSwitch On/Off\n\n\nBefore you can switch it on/off, you need to open the back panel of Cubeacon DevKit v2.\n\n\nAfter it was open, press the button (\nImage 2\n) besides battery for 2-3 sencods until the bluelight lights up (see \nImage 3\n).\n\n\nCubeacon Tools\n will enable Android phone to:\n\n\n\n\nLocate beacons\n\n\nCalibrate RSSI of beacon\n\n\nConfigure beacon parameters\n\n\n\n\nInstall \nCubeacon Tools\n directly from \nGoogle Play Store\n\n\nConfigure Beacon\n\n\n1. Open Cubeacon Tools app\n\n\nBy using \nCubeacon Tools\n you can configure beacon parameters like:\n\n\n\n\nMajor number\n\n\nMinor number\n\n\nMeasured distance\n\n\nTransmission Power\n\n\nBroadcasting Interval\n\n\nBeacon name\n\n\nConnection mode\n\n\nSecurity password\n\n\n\n\n2. Connect to Beacon\n\n\nSelect tab menu \nConfig\n on app and press \nConnect\n button.\n\n\n\n\nIt will show a list of available beacons that have config mode enabled. Each of beacon has information like:\n\n\n\n\nBeacon name\n\n\nMAC address\n\n\nProximity UUID\n\n\nMajor\n\n\nMinor\n\n\nRSSI signal strength\n\n\nBattery level\n\n\n\n\nSelect the beacon that match to your device to ENTER configuration mode.\n\n\n3. Config Mode - 1\n\n\n\n\nThe first config mode screen show:\n\n\n\n\nBattery level\n, it shows the level of battery using value from \n0\n to \n100\n.\n\n\nProximity UUID\n, (Universally Unique Identifier) is a 128-bit value that uniquely identifies your app's beacons.\n\n\nMajor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same proximity UUID.\n\n\nMinor\n, it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same major.\n\n\nMeasured Distance\n, it is a factory-calibrated, read-only constant which indicates what's the expected RSSI at a distance of 1 meter to the beacon. Combined with RSSI, it allows you to estimate the distance between the device and the beacon.\n\n\nTransmission Power\n, it is the power with which the beacon broadcasts its signal. The value ranges from \n-20 dBm\n to \n0 dBm\n.\n\n\nBroadcasting Interval\n, it describes the time between each signal that was broadcasted. The value ranges from \n100ms\n to \n1000ms\n.\n\n\nSerial ID\n, it shows the serial ID of the beacon device.\n\n\nBeacon Name\n, it shows the beacon name.\n\n\n\n\nSelect one of them to change the beacon's parameter value.\n\n\n4. Config Mode - 2\n\n\n\n\nThe second config mode screen show:\n\n\n\n\nConnection Mode\n, normally no need to change this parameter value, unless you want to make beacon parametes immutable.\n\n\nDevice Information\n, this menu will show the device information about the beacon like manufacturer, model number, serial number, firmware, hardware etc.\n\n\nChange Password\n, change the security password to reboot the beacon.\n\n\nSave Configuration\n, after finish modify beacon's parameter, press it and type the security password to reboot to make changes of the parameters.", 
+            "title": "Cubeacon DevKit v2"
         }, 
         {
-            "location": "/i4/#cubeacon-i4", 
-            "text": "This page is intended for The Rounded Cubeacon i4.", 
-            "title": "Cubeacon i4"
+            "location": "/devkit-v2/#cubeacon-devkit-v2", 
+            "text": "This page is intended for The Rounded Cubeacon DevKit v2.", 
+            "title": "Cubeacon DevKit v2"
         }, 
         {
-            "location": "/i4/#technical-spesification", 
+            "location": "/devkit-v2/#technical-spesification", 
             "text": "Transmission Range  100m maximum    Certification  CE ROHS FCC Approval    Compatibility  iOS 7.0 or higher and Android 4.3 or higher    Color  White    Battery model  Coin battery CR2477, 1000mAh    Battery lifetime  1.5 years*    Size  36 x 16 mm    Chipset  Nordic Nrf51822    Protocol  Apple iBeacon\u2122 standard     *NOTE  : Depends on transmission power and broadcast interval of beacon", 
             "title": "Technical Spesification"
         }, 
         {
-            "location": "/i4/#managing-tools", 
+            "location": "/devkit-v2/#managing-tools", 
             "text": "", 
             "title": "Managing Tools"
         }, 
         {
-            "location": "/i4/#switch-onoff", 
-            "text": "Before you can switch it on/off, you need to open the back panel of Cubeacon i4. \nAfter it was open, press the button ( Image 2 ) besides battery for 2-3 sencods until the bluelight lights up (see  Image 3 ).  Cubeacon Tools  will enable Android phone to:   Locate beacons  Calibrate RSSI of beacon  Configure beacon parameters   Install  Cubeacon Tools  directly from  Google Play Store", 
+            "location": "/devkit-v2/#switch-onoff", 
+            "text": "Before you can switch it on/off, you need to open the back panel of Cubeacon DevKit v2. \nAfter it was open, press the button ( Image 2 ) besides battery for 2-3 sencods until the bluelight lights up (see  Image 3 ).  Cubeacon Tools  will enable Android phone to:   Locate beacons  Calibrate RSSI of beacon  Configure beacon parameters   Install  Cubeacon Tools  directly from  Google Play Store", 
             "title": "Switch On/Off"
         }, 
         {
-            "location": "/i4/#configure-beacon", 
+            "location": "/devkit-v2/#configure-beacon", 
             "text": "", 
             "title": "Configure Beacon"
         }, 
         {
-            "location": "/i4/#1-open-cubeacon-tools-app", 
+            "location": "/devkit-v2/#1-open-cubeacon-tools-app", 
             "text": "By using  Cubeacon Tools  you can configure beacon parameters like:   Major number  Minor number  Measured distance  Transmission Power  Broadcasting Interval  Beacon name  Connection mode  Security password", 
             "title": "1. Open Cubeacon Tools app"
         }, 
         {
-            "location": "/i4/#2-connect-to-beacon", 
+            "location": "/devkit-v2/#2-connect-to-beacon", 
             "text": "Select tab menu  Config  on app and press  Connect  button.   It will show a list of available beacons that have config mode enabled. Each of beacon has information like:   Beacon name  MAC address  Proximity UUID  Major  Minor  RSSI signal strength  Battery level   Select the beacon that match to your device to ENTER configuration mode.", 
             "title": "2. Connect to Beacon"
         }, 
         {
-            "location": "/i4/#3-config-mode-1", 
+            "location": "/devkit-v2/#3-config-mode-1", 
             "text": "The first config mode screen show:   Battery level , it shows the level of battery using value from  0  to  100 .  Proximity UUID , (Universally Unique Identifier) is a 128-bit value that uniquely identifies your app's beacons.  Major , it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same proximity UUID.  Minor , it is a 16-bit unsigned integer that used to differentiate groups of beacons with the same major.  Measured Distance , it is a factory-calibrated, read-only constant which indicates what's the expected RSSI at a distance of 1 meter to the beacon. Combined with RSSI, it allows you to estimate the distance between the device and the beacon.  Transmission Power , it is the power with which the beacon broadcasts its signal. The value ranges from  -20 dBm  to  0 dBm .  Broadcasting Interval , it describes the time between each signal that was broadcasted. The value ranges from  100ms  to  1000ms .  Serial ID , it shows the serial ID of the beacon device.  Beacon Name , it shows the beacon name.   Select one of them to change the beacon's parameter value.", 
             "title": "3. Config Mode - 1"
         }, 
         {
-            "location": "/i4/#4-config-mode-2", 
+            "location": "/devkit-v2/#4-config-mode-2", 
             "text": "The second config mode screen show:   Connection Mode , normally no need to change this parameter value, unless you want to make beacon parametes immutable.  Device Information , this menu will show the device information about the beacon like manufacturer, model number, serial number, firmware, hardware etc.  Change Password , change the security password to reboot the beacon.  Save Configuration , after finish modify beacon's parameter, press it and type the security password to reboot to make changes of the parameters.", 
             "title": "4. Config Mode - 2"
         }
